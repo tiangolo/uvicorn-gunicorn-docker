@@ -4,7 +4,7 @@ import docker
 import pytest
 import requests
 
-from .utils import get_config, stop_previous_container
+from ..utils import get_config, stop_previous_container
 
 client = docker.from_env()
 
@@ -30,19 +30,18 @@ client = docker.from_env()
         ),
     ],
 )
-def test_env_bind(image, response_text):
+def test_defaults(image, response_text):
     stop_previous_container(client)
     container = client.containers.run(
-        image,
-        name="uvicorn-gunicorn-test",
-        environment={"BIND": "0.0.0.0:8080", "HOST": "127.0.0.1", "PORT": "9000"},
-        ports={"8080": "8000"},
-        detach=True,
+        image, name="uvicorn-gunicorn-test", ports={"80": "8000"}, detach=True
     )
     config_data = get_config(container)
-    assert config_data["host"] == "127.0.0.1"
-    assert config_data["port"] == "9000"
-    assert config_data["bind"] == "0.0.0.0:8080"
+    assert config_data["workers_per_core"] == 2
+    assert config_data["host"] == "0.0.0.0"
+    assert config_data["port"] == "80"
+    assert config_data["loglevel"] == "info"
+    assert config_data["workers"] > 2
+    assert config_data["bind"] == "0.0.0.0:80"
     time.sleep(1)
     response = requests.get("http://127.0.0.1:8000")
     assert response.text == response_text

@@ -1,4 +1,5 @@
 import json
+
 from docker.errors import NotFound
 
 
@@ -9,11 +10,16 @@ def get_process_names(container):
     return gunicorn_processes
 
 
-def get_config(container):
+def get_gunicorn_conf_path(container):
     gunicorn_processes = get_process_names(container)
     first_process = gunicorn_processes[0]
     first_part, partition, last_part = first_process.partition("-c")
     gunicorn_conf = last_part.strip().split()[0]
+    return gunicorn_conf
+
+
+def get_config(container):
+    gunicorn_conf = get_gunicorn_conf_path(container)
     result = container.exec_run(f"python {gunicorn_conf}")
     return json.loads(result.output.decode())
 

@@ -1,7 +1,7 @@
 import docker
 import pytest
 
-from .utils import get_config, get_process_names, stop_previous_container
+from ..utils import get_config, get_process_names, stop_previous_container
 
 client = docker.from_env()
 
