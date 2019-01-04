@@ -1,5 +1,8 @@
 version: '3'
 services:
+  latest:
+    build: ./python3.6
+    image: tiangolo/uvicorn-gunicorn:latest
   python3.6:
     build: ./python3.6
     image: tiangolo/uvicorn-gunicorn:python3.6
