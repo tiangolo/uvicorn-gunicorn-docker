@@ -44,7 +44,7 @@ You can use **Gunicorn** to manage Uvicorn and run multiple of these concurrent 
 That way, you get the best of concurrency and parallelism.
 
 
-### `uvicorn-gunicorn`
+### `tiangolo/uvicorn-gunicorn`
 
 This image will set a sensible configuration based on the server it is running on (the amount of CPU cores available) without making sacrifices.
 
@@ -66,7 +66,7 @@ If you are creating a new [**Starlette**](https://www.starlette.io/) web applica
 
 If you are creating a new [**FastAPI**](https://fastapi.tiangolo.com/) web application you should use [**tiangolo/uvicorn-gunicorn-fastapi**](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker) instead.
 
-**Note**: FastAPI is based on Starlette and adds several features on top of it for APIs: data validation, data conversion, documentation, dependency injection and others.
+**Note**: FastAPI is based on Starlette and adds several features on top of it. Useful for APIs and other cases: data validation, data conversion, documentation with OpenAPI, dependency injection, security/authentication and others.
 
 **Note**: Unless you are doing something more technically advanced, you probably should be using [**Starlette**](https://www.starlette.io/) with [**tiangolo/uvicorn-gunicorn-starlette**](https://github.com/tiangolo/uvicorn-gunicorn-starlette-docker) or [**FastAPI**](https://fastapi.tiangolo.com/) with [**tiangolo/uvicorn-gunicorn-fastapi**](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker).
 
@@ -124,7 +124,7 @@ By default:
 
 * `app`
 
-If your main Python file contained something like:
+For example, if your main Python file has something like:
 
 ```Python
 from fastapi import FastAPI
