@@ -24,6 +24,11 @@ client = docker.from_env()
             "Test app. From Uvicorn with Gunicorn. Using Python 3.7",
         ),
         (
+            "latest.dockerfile",
+            {"MODULE_NAME": "custom_app.custom_main", "VARIABLE_NAME": "custom_var"},
+            "Test app. From Uvicorn with Gunicorn. Using Python 3.7",
+        ),
+        (
             "python3.6-alpine3.8.dockerfile",
             {"MODULE_NAME": "custom_app.custom_main", "VARIABLE_NAME": "custom_var"},
             "Test app. From Uvicorn with Gunicorn. Using Python 3.6",

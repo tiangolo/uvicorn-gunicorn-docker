@@ -22,6 +22,10 @@ client = docker.from_env()
             "Test app. From Uvicorn with Gunicorn. Using Python 3.7",
         ),
         (
+            "latest.dockerfile",
+            "Test app. From Uvicorn with Gunicorn. Using Python 3.7",
+        ),
+        (
             "python3.6-alpine3.8.dockerfile",
             "Test app. From Uvicorn with Gunicorn. Using Python 3.6",
         ),
