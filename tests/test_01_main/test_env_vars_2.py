@@ -1,3 +1,5 @@
+import time
+
 import docker
 import pytest
 
@@ -30,10 +32,11 @@ def test_env_vars_2(image):
         ports={"80": "8000"},
         detach=True,
     )
+    time.sleep(1)
     process_names = get_process_names(container)
     config_data = get_config(container)
     assert config_data["workers"] == 1
-    assert len(process_names) == 1
+    assert len(process_names) == 2  # Manager + worker
     assert config_data["host"] == "127.0.0.1"
     assert config_data["port"] == "80"
     assert config_data["loglevel"] == "info"
