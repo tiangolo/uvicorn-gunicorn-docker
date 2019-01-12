@@ -4,7 +4,7 @@ import docker
 import pytest
 import requests
 
-from ..utils import get_config, stop_previous_container
+from ..utils import CONTAINER_NAME, get_config, stop_previous_container
 
 client = docker.from_env()
 
@@ -38,7 +38,7 @@ def test_env_vars_1(image, response_text):
     stop_previous_container(client)
     container = client.containers.run(
         image,
-        name="uvicorn-gunicorn-test",
+        name=CONTAINER_NAME,
         environment={"WORKERS_PER_CORE": 1, "PORT": "8000", "LOG_LEVEL": "warning"},
         ports={"8000": "8000"},
         detach=True,

@@ -5,7 +5,7 @@ import docker
 import pytest
 import requests
 
-from ..utils import get_config, stop_previous_container
+from ..utils import CONTAINER_NAME, IMAGE_NAME, get_config, stop_previous_container
 
 client = docker.from_env()
 
@@ -62,13 +62,12 @@ client = docker.from_env()
 )
 def test_defaults(dockerfile, environment, response_text):
     stop_previous_container(client)
-    tag = "uvicorn-gunicorn-testimage"
     test_path: PurePath = Path(__file__)
     path = test_path.parent / "custom_app"
-    client.images.build(path=str(path), dockerfile=dockerfile, tag=tag)
+    client.images.build(path=str(path), dockerfile=dockerfile, tag=IMAGE_NAME)
     container = client.containers.run(
-        tag,
-        name="uvicorn-gunicorn-test",
+        IMAGE_NAME,
+        name=CONTAINER_NAME,
         environment=environment,
         ports={"80": "8000"},
         detach=True,

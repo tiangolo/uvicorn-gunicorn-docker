@@ -5,7 +5,7 @@ import docker
 import pytest
 import requests
 
-from ..utils import get_config, stop_previous_container
+from ..utils import CONTAINER_NAME, IMAGE_NAME, get_config, stop_previous_container
 
 client = docker.from_env()
 
@@ -21,10 +21,7 @@ client = docker.from_env()
             "python3.7.dockerfile",
             "Test app. From Uvicorn with Gunicorn. Using Python 3.7",
         ),
-        (
-            "latest.dockerfile",
-            "Test app. From Uvicorn with Gunicorn. Using Python 3.7",
-        ),
+        ("latest.dockerfile", "Test app. From Uvicorn with Gunicorn. Using Python 3.7"),
         (
             "python3.6-alpine3.8.dockerfile",
             "Test app. From Uvicorn with Gunicorn. Using Python 3.6",
@@ -37,12 +34,11 @@ client = docker.from_env()
 )
 def test_defaults(dockerfile, response_text):
     stop_previous_container(client)
-    tag = "uvicorn-gunicorn-testimage"
     test_path: PurePath = Path(__file__)
     path = test_path.parent / "package_app"
-    client.images.build(path=str(path), dockerfile=dockerfile, tag=tag)
+    client.images.build(path=str(path), dockerfile=dockerfile, tag=IMAGE_NAME)
     container = client.containers.run(
-        tag, name="uvicorn-gunicorn-test", ports={"80": "8000"}, detach=True
+        IMAGE_NAME, name=CONTAINER_NAME, ports={"80": "8000"}, detach=True
     )
     config_data = get_config(container)
     assert config_data["workers_per_core"] == 2
