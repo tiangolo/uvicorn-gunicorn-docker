@@ -32,7 +32,7 @@ client = docker.from_env()
         ),
     ],
 )
-def test_defaults(dockerfile, response_text):
+def test_simple_app(dockerfile, response_text):
     stop_previous_container(client)
     IMAGE_NAME
     test_path: PurePath = Path(__file__)
@@ -41,6 +41,7 @@ def test_defaults(dockerfile, response_text):
     container = client.containers.run(
         IMAGE_NAME, name=CONTAINER_NAME, ports={"80": "8000"}, detach=True
     )
+    time.sleep(1)
     config_data = get_config(container)
     assert config_data["workers_per_core"] == 2
     assert config_data["host"] == "0.0.0.0"
@@ -48,7 +49,6 @@ def test_defaults(dockerfile, response_text):
     assert config_data["loglevel"] == "info"
     assert config_data["workers"] > 2
     assert config_data["bind"] == "0.0.0.0:80"
-    time.sleep(1)
     response = requests.get("http://127.0.0.1:8000")
     assert response.text == response_text
     container.stop()

@@ -49,6 +49,11 @@ client = docker.from_env()
             "Test app. From Uvicorn with Gunicorn. Using Python 3.7",
         ),
         (
+            "latest.dockerfile",
+            {"APP_MODULE": "custom_app.custom_main:custom_var"},
+            "Test app. From Uvicorn with Gunicorn. Using Python 3.7",
+        ),
+        (
             "python3.6-alpine3.8.dockerfile",
             {"APP_MODULE": "custom_app.custom_main:custom_var"},
             "Test app. From Uvicorn with Gunicorn. Using Python 3.6",
@@ -60,7 +65,7 @@ client = docker.from_env()
         ),
     ],
 )
-def test_defaults(dockerfile, environment, response_text):
+def test_custom_app(dockerfile, environment, response_text):
     stop_previous_container(client)
     test_path: PurePath = Path(__file__)
     path = test_path.parent / "custom_app"
@@ -72,6 +77,7 @@ def test_defaults(dockerfile, environment, response_text):
         ports={"80": "8000"},
         detach=True,
     )
+    time.sleep(1)
     config_data = get_config(container)
     assert config_data["workers_per_core"] == 2
     assert config_data["host"] == "0.0.0.0"
@@ -79,7 +85,6 @@ def test_defaults(dockerfile, environment, response_text):
     assert config_data["loglevel"] == "info"
     assert config_data["workers"] > 2
     assert config_data["bind"] == "0.0.0.0:80"
-    time.sleep(1)
     response = requests.get("http://127.0.0.1:8000")
     assert response.text == response_text
     container.stop()

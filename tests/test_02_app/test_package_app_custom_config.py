@@ -38,7 +38,7 @@ client = docker.from_env()
         ),
     ],
 )
-def test_defaults(dockerfile, response_text):
+def test_package_app_custom_config(dockerfile, response_text):
     stop_previous_container(client)
     test_path: PurePath = Path(__file__)
     path = test_path.parent / "package_app_custom_config"
@@ -50,13 +50,13 @@ def test_defaults(dockerfile, response_text):
         ports={"8000": "8000"},
         detach=True,
     )
+    time.sleep(1)
     gunicorn_conf_path = get_gunicorn_conf_path(container)
     config_data = get_config(container)
     assert gunicorn_conf_path == "/app/custom_gunicorn_conf.py"
     assert config_data["loglevel"] == "warning"
     assert config_data["workers"] == 3
     assert config_data["bind"] == "0.0.0.0:8000"
-    time.sleep(1)
     response = requests.get("http://127.0.0.1:8000")
     assert response.text == response_text
     container.stop()
