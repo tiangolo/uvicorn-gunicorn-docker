@@ -1,12 +1,30 @@
 import time
 
-import docker
 import pytest
 import requests
 
-from ..utils import CONTAINER_NAME, get_config, stop_previous_container
+import docker
+
+from ..utils import CONTAINER_NAME, get_config, get_logs, remove_previous_container
 
 client = docker.from_env()
+
+
+def verify_container(container, response_text):
+    config_data = get_config(container)
+    assert config_data["workers_per_core"] == 1
+    assert config_data["host"] == "0.0.0.0"
+    assert config_data["port"] == "8000"
+    assert config_data["loglevel"] == "warning"
+    assert config_data["bind"] == "0.0.0.0:8000"
+    logs = get_logs(container)
+    assert "Checking for script in /app/prestart.sh" in logs
+    assert "Running script /app/prestart.sh" in logs
+    assert (
+        "Running inside /app/prestart.sh, you could add migrations to this file" in logs
+    )
+    response = requests.get("http://127.0.0.1:8000")
+    assert response.text == response_text
 
 
 @pytest.mark.parametrize(
@@ -35,7 +53,7 @@ client = docker.from_env()
     ],
 )
 def test_env_vars_1(image, response_text):
-    stop_previous_container(client)
+    remove_previous_container(client)
     container = client.containers.run(
         image,
         name=CONTAINER_NAME,
@@ -43,14 +61,12 @@ def test_env_vars_1(image, response_text):
         ports={"8000": "8000"},
         detach=True,
     )
-    config_data = get_config(container)
-    assert config_data["workers_per_core"] == 1
-    assert config_data["host"] == "0.0.0.0"
-    assert config_data["port"] == "8000"
-    assert config_data["loglevel"] == "warning"
-    assert config_data["bind"] == "0.0.0.0:8000"
     time.sleep(1)
-    response = requests.get("http://127.0.0.1:8000")
-    assert response.text == response_text
+    verify_container(container, response_text)
+    container.stop()
+    # Test that everything works after restarting too
+    container.start()
+    time.sleep(1)
+    verify_container(container, response_text)
     container.stop()
     container.remove()
