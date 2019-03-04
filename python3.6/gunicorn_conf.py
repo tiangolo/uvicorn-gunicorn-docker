@@ -2,7 +2,7 @@ import json
 import multiprocessing
 import os
 
-workers_per_core_str = os.getenv("WORKERS_PER_CORE", "2")
+workers_per_core_str = os.getenv("WORKERS_PER_CORE", "1")
 web_concurrency_str = os.getenv("WEB_CONCURRENCY", None)
 host = os.getenv("HOST", "0.0.0.0")
 port = os.getenv("PORT", "80")
@@ -20,7 +20,7 @@ if web_concurrency_str:
     web_concurrency = int(web_concurrency_str)
     assert web_concurrency > 0
 else:
-    web_concurrency = int(default_web_concurrency)
+    web_concurrency = max(int(default_web_concurrency), 2)
 
 # Gunicorn config variables
 loglevel = use_loglevel

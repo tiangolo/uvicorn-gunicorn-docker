@@ -12,7 +12,7 @@ client = docker.from_env()
 
 def verify_container(container, response_text):
     config_data = get_config(container)
-    assert config_data["workers_per_core"] == 1
+    assert config_data["workers_per_core"] == 2
     assert config_data["host"] == "0.0.0.0"
     assert config_data["port"] == "8000"
     assert config_data["loglevel"] == "warning"
@@ -57,7 +57,7 @@ def test_env_vars_1(image, response_text):
     container = client.containers.run(
         image,
         name=CONTAINER_NAME,
-        environment={"WORKERS_PER_CORE": 1, "PORT": "8000", "LOG_LEVEL": "warning"},
+        environment={"WORKERS_PER_CORE": 2, "PORT": "8000", "LOG_LEVEL": "warning"},
         ports={"8000": "8000"},
         detach=True,
     )
