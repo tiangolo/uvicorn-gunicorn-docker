@@ -339,6 +339,10 @@ All the image tags, configurations, environment variables and application option
 
 ## Release Notes
 
+### 0.1.2
+
+* Whenever this image is built (and each of its tags/versions), trigger a build for the children images (<a href="https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker" target="_blank">FastAPI</a> and <a href="https://github.com/tiangolo/uvicorn-gunicorn-starlette-docker" target="_blank">Starlette</a>).
+
 ### 0.1.0
 
 * Add support for `/app/prestart.sh`.
