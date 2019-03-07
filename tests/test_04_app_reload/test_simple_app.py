@@ -62,7 +62,7 @@ def test_simple_app(dockerfile, response_text):
     time.sleep(1)
     verify_container(container, response_text)
     container.exec_run(
-        "sed -i 's|Uvicorn with Gunicorn|Uvicorn with autoreload|' /app/custom_app/custom_main.py"
+        "sed -i 's|Uvicorn with Gunicorn|Uvicorn with autoreload|' /app/main.py"
     )
     new_response_text = response_text.replace(
         "Uvicorn with Gunicorn", "Uvicorn with autoreload"
