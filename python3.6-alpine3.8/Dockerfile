@@ -11,6 +11,9 @@ RUN chmod +x /start.sh
 
 COPY ./gunicorn_conf.py /gunicorn_conf.py
 
+COPY ./start-reload.sh /start-reload.sh
+RUN chmod +x /start-reload.sh
+
 COPY ./app /app
 WORKDIR /app/
 
