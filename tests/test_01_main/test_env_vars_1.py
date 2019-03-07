@@ -1,9 +1,8 @@
 import time
 
+import docker
 import pytest
 import requests
-
-import docker
 
 from ..utils import CONTAINER_NAME, get_config, get_logs, remove_previous_container
 

@@ -1,8 +1,7 @@
 import time
 
-import pytest
-
 import docker
+import pytest
 
 from ..utils import (
     CONTAINER_NAME,

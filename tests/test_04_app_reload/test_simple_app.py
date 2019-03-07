@@ -57,7 +57,11 @@ def test_simple_app(dockerfile, response_text):
     path = test_path.parent / "simple_app"
     client.images.build(path=str(path), dockerfile=dockerfile, tag=IMAGE_NAME)
     container = client.containers.run(
-        IMAGE_NAME, name=CONTAINER_NAME, ports={"80": "8000"}, detach=True, command="/start-reload.sh",
+        IMAGE_NAME,
+        name=CONTAINER_NAME,
+        ports={"80": "8000"},
+        detach=True,
+        command="/start-reload.sh",
     )
     time.sleep(1)
     verify_container(container, response_text)

@@ -4,7 +4,7 @@ import docker
 import pytest
 import requests
 
-from ..utils import CONTAINER_NAME, remove_previous_container, get_logs
+from ..utils import CONTAINER_NAME, get_logs, remove_previous_container
 
 client = docker.from_env()
 

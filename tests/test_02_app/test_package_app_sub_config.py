@@ -1,10 +1,9 @@
 import time
 from pathlib import Path, PurePath
 
+import docker
 import pytest
 import requests
-
-import docker
 
 from ..utils import (
     CONTAINER_NAME,
