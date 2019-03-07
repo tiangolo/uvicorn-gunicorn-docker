@@ -51,7 +51,7 @@ def test_env_vars_1(image, response_text):
     container = client.containers.run(
         image,
         name=CONTAINER_NAME,
-        environment={"PORT": "8000", "LOG_LEVEL": "warning"},
+        environment={"PORT": "8000", "LOG_LEVEL": "debug"},
         ports={"8000": "8000"},
         detach=True,
         command="/start-reload.sh",
