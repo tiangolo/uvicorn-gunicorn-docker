@@ -402,7 +402,7 @@ All the image tags, configurations, environment variables and application option
 
 ### 0.4.0
 
-* Add support for live auto-reload with an additional custom script `/start-reload.sh`. PR <a href="https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/6" target="_blank">#6</a>.
+* Add support for live auto-reload with an additional custom script `/start-reload.sh`, check the [updated documentation](https://github.com/tiangolo/uvicorn-gunicorn-docker#development-live-reload). PR <a href="https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/6" target="_blank">#6</a>.
 
 ### 0.3.0
 
