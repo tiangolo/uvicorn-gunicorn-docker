@@ -1,6 +1,5 @@
 [![Build Status](https://travis-ci.org/tiangolo/uvicorn-gunicorn-docker.svg?branch=master)](https://travis-ci.org/tiangolo/uvicorn-gunicorn-docker)
 
-
 ## Supported tags and respective `Dockerfile` links
 
 * [`python3.7`, `latest` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/python3.7/Dockerfile)
@@ -8,15 +7,13 @@
 * [`python3.6-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/python3.6-alpine3.8/Dockerfile)
 * [`python3.7-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/python3.7-alpine3.8/Dockerfile)
 
-
 # uvicorn-gunicorn
 
 [**Docker**](https://www.docker.com/) image with [**Uvicorn**](https://www.uvicorn.org/) managed by [**Gunicorn**](https://gunicorn.org/) for high-performance web applications in **[Python](https://www.python.org/) 3.7** and **3.6** with performance auto-tuning. Optionally with Alpine Linux.
 
-**GitHub repo**: <https://github.com/tiangolo/uvicorn-gunicorn-docker>
+**GitHub repo**: [https://github.com/tiangolo/uvicorn-gunicorn-docker](https://github.com/tiangolo/uvicorn-gunicorn-docker)
 
-**Docker Hub image**: <https://hub.docker.com/r/tiangolo/uvicorn-gunicorn/>
-
+**Docker Hub image**: [https://hub.docker.com/r/tiangolo/uvicorn-gunicorn/](https://hub.docker.com/r/tiangolo/uvicorn-gunicorn/)
 
 ## Description
 
@@ -26,9 +23,7 @@ The achievable performance is on par with (and in many cases superior to) **Go**
 
 This image has an "auto-tuning" mechanism included, so that you can just add your code and get that same **high performance** automatically. And without making sacrifices.
 
-
 ## Technical Details
-
 
 ### Uvicorn
 
@@ -36,13 +31,11 @@ This image has an "auto-tuning" mechanism included, so that you can just add you
 
 It runs asynchronous Python web code in a single process.
 
-
 ### Gunicorn
 
 You can use **Gunicorn** to manage Uvicorn and run multiple of these concurrent processes.
 
 That way, you get the best of concurrency and parallelism.
-
 
 ### `tiangolo/uvicorn-gunicorn`
 
@@ -51,7 +44,6 @@ This image will set a sensible configuration based on the server it is running o
 It has sensible defaults, but you can configure it with environment variables or override the configuration files.
 
 There is also an Alpine version. If you want it, use one of the Alpine tags from above.
-
 
 ### Frameworks
 
@@ -69,7 +61,6 @@ If you are creating a new [**FastAPI**](https://fastapi.tiangolo.com/) web appli
 **Note**: FastAPI is based on Starlette and adds several features on top of it. Useful for APIs and other cases: data validation, data conversion, documentation with OpenAPI, dependency injection, security/authentication and others.
 
 **Note**: Unless you are doing something more technically advanced, you probably should be using [**Starlette**](https://www.starlette.io/) with [**tiangolo/uvicorn-gunicorn-starlette**](https://github.com/tiangolo/uvicorn-gunicorn-starlette-docker) or [**FastAPI**](https://fastapi.tiangolo.com/) with [**tiangolo/uvicorn-gunicorn-fastapi**](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker).
-
 
 ## How to use
 
@@ -107,7 +98,6 @@ You should be able to check it in your Docker container's URL, for example: http
 
 These are the environment variables that you can set in the container to configure it and their default values:
 
-
 #### `MODULE_NAME`
 
 The Python "module" (file) to be imported by Gunicorn, this module would contain the actual application in a variable.
@@ -122,7 +112,6 @@ For example, if your main file was at `/app/custom_app/custom_main.py`, you coul
 ```bash
 docker run -d -p 80:80 -e MODULE_NAME="custom_app.custom_main" myimage
 ```
-
 
 #### `VARIABLE_NAME`
 
@@ -150,7 +139,6 @@ In this case `api` would be the variable with the "ASGI application". You could 
 docker run -d -p 80:80 -e VARIABLE_NAME="api" myimage
 ```
 
-
 #### `APP_MODULE`
 
 The string with the Python module and the variable name passed to Gunicorn.
@@ -165,7 +153,6 @@ You can set it like:
 ```bash
 docker run -d -p 80:80 -e APP_MODULE="custom_app.custom_main:api" myimage
 ```
-
 
 #### `GUNICORN_CONF`
 
@@ -182,7 +169,6 @@ You can set it like:
 ```bash
 docker run -d -p 80:80 -e GUNICORN_CONF="/app/custom_gunicorn_conf.py" myimage
 ```
-
 
 #### `WORKERS_PER_CORE`
 
@@ -214,7 +200,6 @@ In a server with 8 CPU cores, this would make it start only 4 worker processes.
 
 **Note**: By default, if `WORKERS_PER_CORE` is `1` and the server has only 1 CPU core, instead of starting 1 single worker, it will start 2. This is to avoid bad performance and blocking applications (server application) on small machines (server machine/cloud/etc). This can be overridden using `WEB_CONCURRENCY`.
 
-
 #### `WEB_CONCURRENCY`
 
 Override the automatic definition of number of workers.
@@ -230,7 +215,6 @@ docker run -d -p 80:80 -e WEB_CONCURRENCY="2" myimage
 ```
 
 This would make the image start 2 worker processes, independent of how many CPU cores are available in the server.
-
 
 #### `HOST`
 
@@ -262,7 +246,6 @@ You can set it like:
 docker run -d -p 80:8080 -e PORT="8080" myimage
 ```
 
-
 #### `BIND`
 
 The actual host and port passed to Gunicorn.
@@ -270,7 +253,7 @@ The actual host and port passed to Gunicorn.
 By default, set based on the variables `HOST` and `PORT`.
 
 So, if you didn't change anything, it will be set by default to:
-    
+
 * `0.0.0.0:80`
 
 You can set it like:
@@ -278,7 +261,6 @@ You can set it like:
 ```bash
 docker run -d -p 80:8080 -e BIND="0.0.0.0:8080" myimage
 ```
-
 
 #### `LOG_LEVEL`
 
@@ -313,7 +295,6 @@ You can override it by including a file in:
 * `/app/gunicorn_conf.py`
 * `/app/app/gunicorn_conf.py`
 * `/gunicorn_conf.py`
-
 
 ### Custom `/app/prestart.sh`
 
@@ -392,11 +373,9 @@ But these environment variables will work the same as described above:
 * `PORT`
 * `LOG_LEVEL`
 
-
 ## Tests
 
 All the image tags, configurations, environment variables and application options are tested.
-
 
 ## Release Notes
 
@@ -424,7 +403,6 @@ All the image tags, configurations, environment variables and application option
 ### 0.1.0
 
 * Add support for `/app/prestart.sh`.
-
 
 ## License
 
