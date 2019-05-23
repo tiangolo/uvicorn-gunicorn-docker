@@ -381,6 +381,8 @@ All the image tags, configurations, environment variables and application option
 
 ### Next Release
 
+* Update Gunicorn worker heartbeat directory to `/dev/shm` to improve performance. PR [#9](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/9) by [@wshayes](https://github.com/wshayes).
+
 * Upgrade Travis. PR [#7](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/7).
 
 ### 0.4.0
