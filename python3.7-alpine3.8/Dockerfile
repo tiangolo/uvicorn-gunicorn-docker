@@ -3,8 +3,9 @@ FROM python:3.7-alpine3.8
 LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
 
 RUN apk add --no-cache --virtual .build-deps gcc libc-dev make \
-    && pip install uvicorn gunicorn \
-    && apk del .build-deps gcc libc-dev make
+    && pip install --no-cache uvicorn gunicorn \
+    && apk del .build-deps gcc libc-dev make \
+    && find / -xdev -name *.pyc -delete;
 
 COPY ./start.sh /start.sh
 RUN chmod +x /start.sh
