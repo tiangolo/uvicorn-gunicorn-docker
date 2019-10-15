@@ -1,7 +1,7 @@
+import os
 import time
 
 import docker
-import pytest
 
 from ..utils import (
     CONTAINER_NAME,
@@ -24,17 +24,11 @@ def verify_container(container):
     assert "Uvicorn running on http://127.0.0.1:80" in logs
 
 
-@pytest.mark.parametrize(
-    "image",
-    [
-        ("tiangolo/uvicorn-gunicorn:python3.6"),
-        ("tiangolo/uvicorn-gunicorn:python3.7"),
-        ("tiangolo/uvicorn-gunicorn:latest"),
-        ("tiangolo/uvicorn-gunicorn:python3.6-alpine3.8"),
-        ("tiangolo/uvicorn-gunicorn:python3.7-alpine3.8"),
-    ],
-)
-def test_env_vars_2(image):
+def test_env_vars_2():
+    name = os.getenv("NAME")
+    image = f"tiangolo/uvicorn-gunicorn:{name}"
+    sleep_time = int(os.getenv("SLEEP_TIME", 1))
+    time.sleep(sleep_time)
     remove_previous_container(client)
     container = client.containers.run(
         image,
@@ -44,7 +38,7 @@ def test_env_vars_2(image):
         detach=True,
         command="/start-reload.sh",
     )
-    time.sleep(1)
+    time.sleep(sleep_time)
     verify_container(container)
     container.stop()
     container.remove()

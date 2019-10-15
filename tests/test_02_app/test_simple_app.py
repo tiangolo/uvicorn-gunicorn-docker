@@ -1,8 +1,8 @@
+import os
 import time
 from pathlib import Path, PurePath
 
 import docker
-import pytest
 import requests
 
 from ..utils import (
@@ -34,43 +34,24 @@ def verify_container(container, response_text):
     assert response.text == response_text
 
 
-@pytest.mark.parametrize(
-    "dockerfile,response_text",
-    [
-        (
-            "python3.6.dockerfile",
-            "Test app. From Uvicorn with Gunicorn. Using Python 3.6",
-        ),
-        (
-            "python3.7.dockerfile",
-            "Test app. From Uvicorn with Gunicorn. Using Python 3.7",
-        ),
-        ("latest.dockerfile", "Test app. From Uvicorn with Gunicorn. Using Python 3.7"),
-        (
-            "python3.6-alpine3.8.dockerfile",
-            "Test app. From Uvicorn with Gunicorn. Using Python 3.6",
-        ),
-        (
-            "python3.7-alpine3.8.dockerfile",
-            "Test app. From Uvicorn with Gunicorn. Using Python 3.7",
-        ),
-    ],
-)
-def test_simple_app(dockerfile, response_text):
+def test_simple_app():
+    name = os.getenv("NAME")
+    dockerfile = f"{name}.dockerfile"
+    response_text = os.getenv("TEST_STR2")
+    sleep_time = int(os.getenv("SLEEP_TIME", 1))
     remove_previous_container(client)
-    IMAGE_NAME
     test_path: PurePath = Path(__file__)
     path = test_path.parent / "simple_app"
     client.images.build(path=str(path), dockerfile=dockerfile, tag=IMAGE_NAME)
     container = client.containers.run(
         IMAGE_NAME, name=CONTAINER_NAME, ports={"80": "8000"}, detach=True
     )
-    time.sleep(1)
+    time.sleep(sleep_time)
     verify_container(container, response_text)
     container.stop()
     # Test that everything works after restarting too
     container.start()
-    time.sleep(1)
+    time.sleep(sleep_time)
     verify_container(container, response_text)
     container.stop()
     container.remove()

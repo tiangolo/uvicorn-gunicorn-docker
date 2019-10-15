@@ -1,3 +1,4 @@
+import os
 import time
 from pathlib import Path, PurePath
 
@@ -35,61 +36,17 @@ def verify_container(container, response_text):
 
 
 @pytest.mark.parametrize(
-    "dockerfile,environment,response_text",
+    "environment",
     [
-        (
-            "python3.6.dockerfile",
-            {"MODULE_NAME": "custom_app.custom_main", "VARIABLE_NAME": "custom_var"},
-            "Test app. From Uvicorn with Gunicorn. Using Python 3.6",
-        ),
-        (
-            "python3.7.dockerfile",
-            {"MODULE_NAME": "custom_app.custom_main", "VARIABLE_NAME": "custom_var"},
-            "Test app. From Uvicorn with Gunicorn. Using Python 3.7",
-        ),
-        (
-            "latest.dockerfile",
-            {"MODULE_NAME": "custom_app.custom_main", "VARIABLE_NAME": "custom_var"},
-            "Test app. From Uvicorn with Gunicorn. Using Python 3.7",
-        ),
-        (
-            "python3.6-alpine3.8.dockerfile",
-            {"MODULE_NAME": "custom_app.custom_main", "VARIABLE_NAME": "custom_var"},
-            "Test app. From Uvicorn with Gunicorn. Using Python 3.6",
-        ),
-        (
-            "python3.7-alpine3.8.dockerfile",
-            {"MODULE_NAME": "custom_app.custom_main", "VARIABLE_NAME": "custom_var"},
-            "Test app. From Uvicorn with Gunicorn. Using Python 3.7",
-        ),
-        (
-            "python3.6.dockerfile",
-            {"APP_MODULE": "custom_app.custom_main:custom_var"},
-            "Test app. From Uvicorn with Gunicorn. Using Python 3.6",
-        ),
-        (
-            "python3.7.dockerfile",
-            {"APP_MODULE": "custom_app.custom_main:custom_var"},
-            "Test app. From Uvicorn with Gunicorn. Using Python 3.7",
-        ),
-        (
-            "latest.dockerfile",
-            {"APP_MODULE": "custom_app.custom_main:custom_var"},
-            "Test app. From Uvicorn with Gunicorn. Using Python 3.7",
-        ),
-        (
-            "python3.6-alpine3.8.dockerfile",
-            {"APP_MODULE": "custom_app.custom_main:custom_var"},
-            "Test app. From Uvicorn with Gunicorn. Using Python 3.6",
-        ),
-        (
-            "python3.7-alpine3.8.dockerfile",
-            {"APP_MODULE": "custom_app.custom_main:custom_var"},
-            "Test app. From Uvicorn with Gunicorn. Using Python 3.7",
-        ),
+        {"MODULE_NAME": "custom_app.custom_main", "VARIABLE_NAME": "custom_var"},
+        {"APP_MODULE": "custom_app.custom_main:custom_var"},
     ],
 )
-def test_custom_app(dockerfile, environment, response_text):
+def test_custom_app(environment):
+    name = os.getenv("NAME")
+    dockerfile = f"{name}.dockerfile"
+    response_text = os.getenv("TEST_STR2")
+    sleep_time = int(os.getenv("SLEEP_TIME", 1))
     remove_previous_container(client)
     test_path: PurePath = Path(__file__)
     path = test_path.parent / "custom_app"
@@ -101,12 +58,12 @@ def test_custom_app(dockerfile, environment, response_text):
         ports={"80": "8000"},
         detach=True,
     )
-    time.sleep(1)
+    time.sleep(sleep_time)
     verify_container(container, response_text)
     container.stop()
     # Test that everything works after restarting too
     container.start()
-    time.sleep(1)
+    time.sleep(sleep_time)
     verify_container(container, response_text)
     container.stop()
     container.remove()
