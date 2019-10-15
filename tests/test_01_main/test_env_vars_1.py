@@ -1,7 +1,7 @@
+import os
 import time
 
 import docker
-import pytest
 import requests
 
 from ..utils import CONTAINER_NAME, get_config, get_logs, remove_previous_container
@@ -26,32 +26,11 @@ def verify_container(container, response_text):
     assert response.text == response_text
 
 
-@pytest.mark.parametrize(
-    "image,response_text",
-    [
-        (
-            "tiangolo/uvicorn-gunicorn:python3.6",
-            "Hello world! From Uvicorn with Gunicorn. Using Python 3.6",
-        ),
-        (
-            "tiangolo/uvicorn-gunicorn:python3.7",
-            "Hello world! From Uvicorn with Gunicorn. Using Python 3.7",
-        ),
-        (
-            "tiangolo/uvicorn-gunicorn:latest",
-            "Hello world! From Uvicorn with Gunicorn. Using Python 3.7",
-        ),
-        (
-            "tiangolo/uvicorn-gunicorn:python3.6-alpine3.8",
-            "Hello world! From Uvicorn with Gunicorn in Alpine. Using Python 3.6",
-        ),
-        (
-            "tiangolo/uvicorn-gunicorn:python3.7-alpine3.8",
-            "Hello world! From Uvicorn with Gunicorn in Alpine. Using Python 3.7",
-        ),
-    ],
-)
-def test_env_vars_1(image, response_text):
+def test_env_vars_1():
+    name = os.getenv("NAME")
+    image = f"tiangolo/uvicorn-gunicorn:{name}"
+    response_text = os.getenv("TEST_STR1")
+    sleep_time = int(os.getenv("SLEEP_TIME", 1))
     remove_previous_container(client)
     container = client.containers.run(
         image,
@@ -60,12 +39,12 @@ def test_env_vars_1(image, response_text):
         ports={"8000": "8000"},
         detach=True,
     )
-    time.sleep(1)
+    time.sleep(sleep_time)
     verify_container(container, response_text)
     container.stop()
     # Test that everything works after restarting too
     container.start()
-    time.sleep(1)
+    time.sleep(sleep_time)
     verify_container(container, response_text)
     container.stop()
     container.remove()
