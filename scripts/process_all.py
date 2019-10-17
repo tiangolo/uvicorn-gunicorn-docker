@@ -10,6 +10,12 @@ environments = [
         "TEST_STR2": "Test app. From Uvicorn with Gunicorn. Using Python 3.7",
     },
     {
+        "NAME": "python3.8",
+        "BUILD_PATH": "python3.8",
+        "TEST_STR1": "Hello world! From Uvicorn with Gunicorn. Using Python 3.8",
+        "TEST_STR2": "Test app. From Uvicorn with Gunicorn. Using Python 3.8",
+    },
+    {
         "NAME": "python3.7",
         "BUILD_PATH": "python3.7",
         "TEST_STR1": "Hello world! From Uvicorn with Gunicorn. Using Python 3.7",
@@ -20,6 +26,12 @@ environments = [
         "BUILD_PATH": "python3.6",
         "TEST_STR1": "Hello world! From Uvicorn with Gunicorn. Using Python 3.6",
         "TEST_STR2": "Test app. From Uvicorn with Gunicorn. Using Python 3.6",
+    },
+    {
+        "NAME": "python3.8-alpine3.10",
+        "BUILD_PATH": "python3.8-alpine3.10",
+        "TEST_STR1": "Hello world! From Uvicorn with Gunicorn in Alpine. Using Python 3.8",
+        "TEST_STR2": "Test app. From Uvicorn with Gunicorn. Using Python 3.8",
     },
     {
         "NAME": "python3.7-alpine3.8",
