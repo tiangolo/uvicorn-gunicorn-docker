@@ -4,6 +4,9 @@ import os
 
 workers_per_core_str = os.getenv("WORKERS_PER_CORE", "1")
 web_concurrency_str = os.getenv("WEB_CONCURRENCY", None)
+graceful_timeout_str = os.getenv("GRACEFUL_TIMEOUT", "120")
+timeout_str = os.getenv("TIMEOUT", "120")
+keepalive_str = os.getenv("KEEPALIVE", "120")
 host = os.getenv("HOST", "0.0.0.0")
 port = os.getenv("PORT", "80")
 bind_env = os.getenv("BIND", None)
@@ -22,11 +25,14 @@ if web_concurrency_str:
 else:
     web_concurrency = max(int(default_web_concurrency), 2)
 
+graceful_timeout = int(graceful_timeout_str)
+timeout = int(timeout_str)
+keepalive = int(keepalive_str)
+
 # Gunicorn config variables
 loglevel = use_loglevel
 workers = web_concurrency
 bind = use_bind
-keepalive = 120
 errorlog = "-"
 
 # For debugging and testing
