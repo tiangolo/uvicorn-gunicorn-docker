@@ -16,6 +16,12 @@ environments = [
         "TEST_STR2": "Test app. From Uvicorn with Gunicorn. Using Python 3.7",
     },
     {
+        "NAME": "python3.7-slim",
+        "BUILD_PATH": "python3.7-slim",
+        "TEST_STR1": "Hello world! From Uvicorn with Gunicorn. Using Python 3.7-slim",
+        "TEST_STR2": "Test app. From Uvicorn with Gunicorn. Using Python 3.7-slim",
+    },
+    {
         "NAME": "python3.6",
         "BUILD_PATH": "python3.6",
         "TEST_STR1": "Hello world! From Uvicorn with Gunicorn. Using Python 3.6",
