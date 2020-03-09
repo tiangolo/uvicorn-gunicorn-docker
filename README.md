@@ -2,10 +2,13 @@
 
 ## Supported tags and respective `Dockerfile` links
 
-* [`python3.7`, `latest` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/python3.7/Dockerfile)
-* [`python3.6` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/python3.6/Dockerfile)
-* [`python3.6-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/python3.6-alpine3.8/Dockerfile)
-* [`python3.7-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/python3.7-alpine3.8/Dockerfile)
+* [`python3.8`, `latest` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/dockerfiles/python3.8.dockerfile)
+* [`python3.7` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/dockerfiles/python3.7.dockerfile)
+* [`python3.6` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/dockerfiles/python3.6.dockerfile)
+* [`python3.8-alpine3.11` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/dockerfiles/python3.8-alpine3.11.dockerfile)
+* [`python3.7-alpine3.11` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/dockerfiles/python3.7-alpine3.11.dockerfile)
+* [`python3.6-alpine3.11` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/dockerfiles/python3.6-alpine3.11.dockerfile)
+
 
 **Note**: Note: There are [tags for each build date](https://hub.docker.com/r/tiangolo/uvicorn-gunicorn/tags). If you need to "pin" the Docker image version you use, you can select one of those tags. E.g. `tiangolo/uvicorn-gunicorn:python3.7-2019-10-15`.
 
@@ -69,7 +72,7 @@ If you are creating a new [**FastAPI**](https://fastapi.tiangolo.com/) web appli
 * You don't need to clone the GitHub repo. You can use this image as a base image for other images, using this in your `Dockerfile`:
 
 ```Dockerfile
-FROM tiangolo/uvicorn-gunicorn:python3.7
+FROM tiangolo/uvicorn-gunicorn:python3.8
 
 COPY ./app /app
 ```

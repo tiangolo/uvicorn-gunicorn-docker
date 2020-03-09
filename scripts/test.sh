@@ -3,5 +3,5 @@ set -e
 
 use_tag="tiangolo/uvicorn-gunicorn:$NAME"
 
-docker build -t "$use_tag" "$BUILD_PATH"
+docker build -t "$use_tag" -f "$DOCKERFILE" "$BUILD_PATH"
 pytest tests

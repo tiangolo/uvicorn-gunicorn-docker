@@ -1,8 +1,10 @@
-FROM python:3.6
+FROM python:3.6-alpine3.11
 
 LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
 
-RUN pip install uvicorn gunicorn
+RUN apk add --no-cache --virtual .build-deps gcc libc-dev make \
+    && pip install uvicorn gunicorn \
+    && apk del .build-deps gcc libc-dev make
 
 COPY ./start.sh /start.sh
 RUN chmod +x /start.sh

@@ -2,12 +2,14 @@ import json
 import multiprocessing
 import os
 
-workers_per_core_str = os.getenv("WORKERS_PER_CORE", "1")
+workers_per_core_str = os.getenv("WORKERS_PER_CORE", "2")
 web_concurrency_str = os.getenv("WEB_CONCURRENCY", None)
 host = os.getenv("HOST", "0.0.0.0")
 port = os.getenv("PORT", "80")
 bind_env = os.getenv("BIND", None)
 use_loglevel = os.getenv("LOG_LEVEL", "info")
+request_timeout = os.getenv("TIMEOUT", "30")
+secure_scheme_headers = os.getenv("SECURE_SCHEME_HEADERS", {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'})
 if bind_env:
     use_bind = bind_env
 else:
@@ -20,7 +22,7 @@ if web_concurrency_str:
     web_concurrency = int(web_concurrency_str)
     assert web_concurrency > 0
 else:
-    web_concurrency = max(int(default_web_concurrency), 2)
+    web_concurrency = int(default_web_concurrency)
 
 # Gunicorn config variables
 loglevel = use_loglevel
@@ -28,7 +30,7 @@ workers = web_concurrency
 bind = use_bind
 keepalive = 120
 errorlog = "-"
-worker_tmp_dir = "/dev/shm"
+timeout = request_timeout
 
 # For debugging and testing
 log_data = {
