@@ -397,6 +397,7 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* Migrate local development from Pipenv to Poetry. PR [#31](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/31).
 * Add tests and docs for custom `PRE_START_PATH` env var. PR [#30](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/30).
 * Add support for custom `PRE_START_PATH` env var. PR [#12](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/12) by [@mgfinch](https://github.com/mgfinch).
 
