@@ -14,8 +14,8 @@ HOST=${HOST:-0.0.0.0}
 PORT=${PORT:-80}
 LOG_LEVEL=${LOG_LEVEL:-info}
 
-# If there's a prestart.sh script in the /app directory, run it before starting
-PRE_START_PATH=/app/prestart.sh
+# If there's a prestart.sh script in the /app directory or other path specified, run it before starting
+PRE_START_PATH=${PRE_START_PATH:-/app/prestart.sh}
 echo "Checking for script in $PRE_START_PATH"
 if [ -f $PRE_START_PATH ] ; then
     echo "Running script $PRE_START_PATH"
