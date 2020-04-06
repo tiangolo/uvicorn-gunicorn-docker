@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/tiangolo/uvicorn-gunicorn-docker.svg?branch=master)](https://travis-ci.org/tiangolo/uvicorn-gunicorn-docker)
+[![Build Status](https://travis-ci.com/tiangolo/uvicorn-gunicorn-docker.svg?branch=master&status=passed)](https://travis-ci.com/tiangolo/uvicorn-gunicorn-docker)
 
 ## Supported tags and respective `Dockerfile` links
 
@@ -397,6 +397,7 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* Add tests and docs for custom `PRE_START_PATH` env var. PR [#30](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/30).
 * Add support for custom `PRE_START_PATH` env var. PR [#12](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/12) by [@mgfinch](https://github.com/mgfinch).
 
 ### 0.5.0
