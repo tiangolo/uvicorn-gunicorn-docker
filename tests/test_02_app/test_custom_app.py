@@ -6,6 +6,7 @@ from typing import Dict
 import docker
 import pytest
 import requests
+from docker.client import DockerClient
 
 from ..utils import (
     CONTAINER_NAME,
@@ -20,7 +21,9 @@ from ..utils import (
 client = docker.from_env()
 
 
-def verify_container(container, response_text, prestart_str):
+def verify_container(
+    container: DockerClient, response_text: str, prestart_str: str
+) -> None:
     config_data = get_config(container)
     assert config_data["workers_per_core"] == 1
     assert config_data["host"] == "0.0.0.0"

@@ -1,20 +1,23 @@
 import json
 import os
+from typing import Any, Dict, List
 
+from docker.client import DockerClient
 from docker.errors import NotFound
+from docker.models.containers import Container
 
 CONTAINER_NAME = "uvicorn-gunicorn-test"
 IMAGE_NAME = "uvicorn-gunicorn-testimage"
 
 
-def get_process_names(container):
+def get_process_names(container: Container) -> List[str]:
     top = container.top()
     process_commands = [p[7] for p in top["Processes"]]
     gunicorn_processes = [p for p in process_commands if "gunicorn" in p]
     return gunicorn_processes
 
 
-def get_gunicorn_conf_path(container):
+def get_gunicorn_conf_path(container: Container) -> str:
     gunicorn_processes = get_process_names(container)
     first_process = gunicorn_processes[0]
     first_part, partition, last_part = first_process.partition("-c")
@@ -22,13 +25,13 @@ def get_gunicorn_conf_path(container):
     return gunicorn_conf
 
 
-def get_config(container):
+def get_config(container: Container) -> Dict[str, Any]:
     gunicorn_conf = get_gunicorn_conf_path(container)
     result = container.exec_run(f"python {gunicorn_conf}")
     return json.loads(result.output.decode())
 
 
-def remove_previous_container(client):
+def remove_previous_container(client: DockerClient) -> None:
     try:
         previous = client.containers.get(CONTAINER_NAME)
         previous.stop()
@@ -37,8 +40,8 @@ def remove_previous_container(client):
         return None
 
 
-def get_logs(container):
-    logs: str = container.logs()
+def get_logs(container: DockerClient) -> str:
+    logs = container.logs()
     return logs.decode("utf-8")
 
 

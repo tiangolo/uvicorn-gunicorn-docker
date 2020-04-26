@@ -6,6 +6,7 @@ from typing import Dict
 import docker
 import pytest
 import requests
+from docker.models.containers import Container
 
 from ..utils import (
     CONTAINER_NAME,
@@ -19,7 +20,7 @@ from ..utils import (
 client = docker.from_env()
 
 
-def verify_container(container, response_text):
+def verify_container(container: Container, response_text: str) -> None:
     logs = get_logs(container)
     assert "Checking for script in /app/prestart.sh" in logs
     assert "Running script /app/prestart.sh" in logs

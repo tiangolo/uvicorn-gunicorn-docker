@@ -3,6 +3,7 @@ import time
 
 import docker
 import requests
+from docker.client import DockerClient
 from docker.models.containers import Container
 
 from ..utils import (
@@ -15,7 +16,7 @@ from ..utils import (
 client = docker.from_env()
 
 
-def verify_container(container, response_text):
+def verify_container(container: DockerClient, response_text: str) -> None:
     logs = get_logs(container)
     assert "Checking for script in /app/prestart.sh" in logs
     assert "Running script /app/prestart.sh" in logs
@@ -27,7 +28,7 @@ def verify_container(container, response_text):
     assert response.text == response_text
 
 
-def test_defaults():
+def test_defaults() -> None:
     name = os.getenv("NAME")
     image = f"tiangolo/uvicorn-gunicorn:{name}"
     response_text = get_response_text1()

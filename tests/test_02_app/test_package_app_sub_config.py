@@ -4,6 +4,7 @@ from pathlib import Path
 
 import docker
 import requests
+from docker.client import DockerClient
 
 from ..utils import (
     CONTAINER_NAME,
@@ -19,7 +20,7 @@ from ..utils import (
 client = docker.from_env()
 
 
-def verify_container(container, response_text):
+def verify_container(container: DockerClient, response_text: str) -> None:
     gunicorn_conf_path = get_gunicorn_conf_path(container)
     config_data = get_config(container)
     assert gunicorn_conf_path == "/app/app/gunicorn_conf.py"

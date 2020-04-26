@@ -4,6 +4,7 @@ from pathlib import Path
 
 import docker
 import requests
+from docker.models.containers import Container
 
 from ..utils import (
     CONTAINER_NAME,
@@ -18,7 +19,7 @@ from ..utils import (
 client = docker.from_env()
 
 
-def verify_container(container, response_text):
+def verify_container(container: Container, response_text: str) -> None:
     config_data = get_config(container)
     assert config_data["workers_per_core"] == 1
     assert config_data["host"] == "0.0.0.0"
