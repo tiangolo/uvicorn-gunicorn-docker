@@ -42,3 +42,7 @@ jobs:
         run: python3.7 -m pip install docker pytest
       - name: Test Image
         run: bash scripts/test.sh
+        env:
+          NAME: ${{ matrix.image.name }}
+          DOCKERFILE: ${{ matrix.image.dockerfile }}
+          PYTHON_VERSION: ${{ matrix.image.python_version }}
