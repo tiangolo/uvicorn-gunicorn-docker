@@ -2,7 +2,7 @@ FROM python:3.8
 
 LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
 
-RUN pip install uvicorn gunicorn
+RUN pip install --no-cache-dir uvicorn gunicorn
 
 COPY ./start.sh /start.sh
 RUN chmod +x /start.sh
