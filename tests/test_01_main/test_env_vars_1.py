@@ -4,7 +4,13 @@ import time
 import docker
 import requests
 
-from ..utils import CONTAINER_NAME, get_config, get_logs, remove_previous_container
+from ..utils import (
+    CONTAINER_NAME,
+    get_config,
+    get_logs,
+    get_response_text1,
+    remove_previous_container,
+)
 
 client = docker.from_env()
 
@@ -29,7 +35,7 @@ def verify_container(container, response_text):
 def test_env_vars_1():
     name = os.getenv("NAME")
     image = f"tiangolo/uvicorn-gunicorn:{name}"
-    response_text = os.getenv("TEST_STR1")
+    response_text = get_response_text1()
     sleep_time = int(os.getenv("SLEEP_TIME", 1))
     remove_previous_container(client)
     container = client.containers.run(

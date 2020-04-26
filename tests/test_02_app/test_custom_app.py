@@ -11,6 +11,7 @@ from ..utils import (
     IMAGE_NAME,
     get_config,
     get_logs,
+    get_response_text2,
     remove_previous_container,
 )
 
@@ -62,7 +63,7 @@ def verify_container(container, response_text, prestart_str):
 def test_custom_app(environment, prestart_str):
     name = os.getenv("NAME")
     dockerfile = f"{name}.dockerfile"
-    response_text = os.getenv("TEST_STR2")
+    response_text = get_response_text2()
     sleep_time = int(os.getenv("SLEEP_TIME", 1))
     remove_previous_container(client)
     test_path: PurePath = Path(__file__)
