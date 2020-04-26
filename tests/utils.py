@@ -1,4 +1,5 @@
 import json
+import os
 
 from docker.errors import NotFound
 
@@ -39,3 +40,13 @@ def remove_previous_container(client):
 def get_logs(container):
     logs: str = container.logs()
     return logs.decode("utf-8")
+
+
+def get_response_text1() -> str:
+    python_version = os.getenv("PYTHON_VERSION")
+    return f"Hello world! From Uvicorn with Gunicorn. Using Python {python_version}"
+
+
+def get_response_text2() -> str:
+    python_version = os.getenv("PYTHON_VERSION")
+    return f"Test app. From Uvicorn with Gunicorn. Using Python {python_version}"

@@ -12,11 +12,11 @@ services:
   - docker
 
 env:
-  - NAME='latest' BUILD_PATH='python3.7' TEST_STR1='Hello world! From Uvicorn with Gunicorn. Using Python 3.7' TEST_STR2='Test app. From Uvicorn with Gunicorn. Using Python 3.7'
-  - NAME='python3.7' BUILD_PATH='python3.7' TEST_STR1='Hello world! From Uvicorn with Gunicorn. Using Python 3.7' TEST_STR2='Test app. From Uvicorn with Gunicorn. Using Python 3.7'
-  - NAME='python3.6' BUILD_PATH='python3.6' TEST_STR1='Hello world! From Uvicorn with Gunicorn. Using Python 3.6' TEST_STR2='Test app. From Uvicorn with Gunicorn. Using Python 3.6'
-  - NAME='python3.7-alpine3.8' BUILD_PATH='python3.7-alpine3.8' TEST_STR1='Hello world! From Uvicorn with Gunicorn in Alpine. Using Python 3.7' TEST_STR2='Test app. From Uvicorn with Gunicorn. Using Python 3.7'
-  - NAME='python3.6-alpine3.8' BUILD_PATH='python3.6-alpine3.8' TEST_STR1='Hello world! From Uvicorn with Gunicorn in Alpine. Using Python 3.6' TEST_STR2='Test app. From Uvicorn with Gunicorn. Using Python 3.6'
+  - NAME='latest' DOCKERFILE='python3.7' PYTHON_VERSION='3.7'
+  - NAME='python3.7' PYTHON_VERSION='3.7'
+  - NAME='python3.6' PYTHON_VERSION='3.6'
+  - NAME='python3.7-alpine3.8' PYTHON_VERSION='3.7'
+  - NAME='python3.6-alpine3.8' PYTHON_VERSION='3.6'
   
 
 script:
