@@ -1,6 +1,7 @@
 import os
 import time
-from pathlib import Path, PurePath
+from pathlib import Path
+from typing import Dict
 
 import docker
 import pytest
@@ -9,6 +10,7 @@ import requests
 from ..utils import (
     CONTAINER_NAME,
     IMAGE_NAME,
+    generate_dockerfile_content,
     get_config,
     get_logs,
     get_response_text2,
@@ -60,14 +62,17 @@ def verify_container(container, response_text, prestart_str):
         ),
     ],
 )
-def test_custom_app(environment, prestart_str):
-    name = os.getenv("NAME")
-    dockerfile = f"{name}.dockerfile"
+def test_custom_app(environment: Dict[str, str], prestart_str: str) -> None:
+    name = os.getenv("NAME", "")
+    dockerfile_content = generate_dockerfile_content(name)
+    dockerfile = "Dockerfile"
     response_text = get_response_text2()
     sleep_time = int(os.getenv("SLEEP_TIME", 1))
     remove_previous_container(client)
-    test_path: PurePath = Path(__file__)
+    test_path = Path(__file__)
     path = test_path.parent / "custom_app"
+    dockerfile_path = path / dockerfile
+    dockerfile_path.write_text(dockerfile_content)
     client.images.build(path=str(path), dockerfile=dockerfile, tag=IMAGE_NAME)
     container = client.containers.run(
         IMAGE_NAME,

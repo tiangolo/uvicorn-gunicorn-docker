@@ -3,13 +3,7 @@ import time
 
 import docker
 
-from ..utils import (
-    CONTAINER_NAME,
-    get_config,
-    get_logs,
-    get_process_names,
-    remove_previous_container,
-)
+from ..utils import CONTAINER_NAME, get_logs, remove_previous_container
 
 client = docker.from_env()
 

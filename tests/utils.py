@@ -50,3 +50,9 @@ def get_response_text1() -> str:
 def get_response_text2() -> str:
     python_version = os.getenv("PYTHON_VERSION")
     return f"Test app. From Uvicorn with Gunicorn. Using Python {python_version}"
+
+
+def generate_dockerfile_content(name: str) -> str:
+    content = f"FROM tiangolo/uvicorn-gunicorn:{name}\n"
+    content += "COPY ./app /app"
+    return content
