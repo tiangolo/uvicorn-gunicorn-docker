@@ -6,7 +6,7 @@ python:
   - "3.7"
 
 install:
-  - pip install docker==4.1.0 pytest
+  - pip install docker pytest
 
 services:
   - docker
