@@ -1,13 +1,15 @@
 import os
 import time
-from pathlib import Path, PurePath
+from pathlib import Path
 
 import docker
 import requests
+from docker.client import DockerClient
 
 from ..utils import (
     CONTAINER_NAME,
     IMAGE_NAME,
+    generate_dockerfile_content,
     get_config,
     get_gunicorn_conf_path,
     get_logs,
@@ -18,7 +20,7 @@ from ..utils import (
 client = docker.from_env()
 
 
-def verify_container(container, response_text):
+def verify_container(container: DockerClient, response_text: str) -> None:
     gunicorn_conf_path = get_gunicorn_conf_path(container)
     config_data = get_config(container)
     assert gunicorn_conf_path == "/app/app/gunicorn_conf.py"
@@ -35,14 +37,17 @@ def verify_container(container, response_text):
     assert response.text == response_text
 
 
-def test_package_app_sub_config():
-    name = os.getenv("NAME")
-    dockerfile = f"{name}.dockerfile"
+def test_package_app_sub_config() -> None:
+    name = os.getenv("NAME", "")
+    dockerfile_content = generate_dockerfile_content(name)
+    dockerfile = "Dockerfile"
     response_text = get_response_text2()
     sleep_time = int(os.getenv("SLEEP_TIME", 1))
     remove_previous_container(client)
-    test_path: PurePath = Path(__file__)
+    test_path = Path(__file__)
     path = test_path.parent / "package_app_sub_config"
+    dockerfile_path = path / dockerfile
+    dockerfile_path.write_text(dockerfile_content)
     client.images.build(path=str(path), dockerfile=dockerfile, tag=IMAGE_NAME)
     container = client.containers.run(
         IMAGE_NAME, name=CONTAINER_NAME, ports={"8000": "8000"}, detach=True

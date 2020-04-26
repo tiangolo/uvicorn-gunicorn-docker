@@ -2,6 +2,7 @@ import os
 import time
 
 import docker
+from docker.models.containers import Container
 
 from ..utils import (
     CONTAINER_NAME,
@@ -14,7 +15,7 @@ from ..utils import (
 client = docker.from_env()
 
 
-def verify_container(container):
+def verify_container(container: Container) -> None:
     process_names = get_process_names(container)
     config_data = get_config(container)
     assert config_data["workers"] == 1
@@ -31,7 +32,7 @@ def verify_container(container):
     )
 
 
-def test_env_vars_2():
+def test_env_vars_2() -> None:
     name = os.getenv("NAME")
     image = f"tiangolo/uvicorn-gunicorn:{name}"
     sleep_time = int(os.getenv("SLEEP_TIME", 1))

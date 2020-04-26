@@ -1,13 +1,15 @@
 import os
 import time
-from pathlib import Path, PurePath
+from pathlib import Path
 
 import docker
 import requests
+from docker.models.containers import Container
 
 from ..utils import (
     CONTAINER_NAME,
     IMAGE_NAME,
+    generate_dockerfile_content,
     get_logs,
     get_response_text2,
     remove_previous_container,
@@ -16,7 +18,7 @@ from ..utils import (
 client = docker.from_env()
 
 
-def verify_container(container, response_text):
+def verify_container(container: Container, response_text: str) -> None:
     logs = get_logs(container)
     assert "Checking for script in /app/prestart.sh" in logs
     assert "Running script /app/prestart.sh" in logs
@@ -28,15 +30,18 @@ def verify_container(container, response_text):
     assert response.text == response_text
 
 
-def test_simple_app():
-    name = os.getenv("NAME")
-    dockerfile = f"{name}.dockerfile"
+def test_simple_app() -> None:
+    name = os.getenv("NAME", "")
+    dockerfile_content = generate_dockerfile_content(name)
+    dockerfile = "Dockerfile"
     response_text = get_response_text2()
     sleep_time = int(os.getenv("SLEEP_TIME", 1))
     remove_previous_container(client)
     IMAGE_NAME
-    test_path: PurePath = Path(__file__)
+    test_path = Path(__file__)
     path = test_path.parent / "simple_app"
+    dockerfile_path = path / dockerfile
+    dockerfile_path.write_text(dockerfile_content)
     client.images.build(path=str(path), dockerfile=dockerfile, tag=IMAGE_NAME)
     container = client.containers.run(
         IMAGE_NAME,

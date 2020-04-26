@@ -2,19 +2,14 @@ import os
 import time
 
 import docker
+from docker.models.containers import Container
 
-from ..utils import (
-    CONTAINER_NAME,
-    get_config,
-    get_logs,
-    get_process_names,
-    remove_previous_container,
-)
+from ..utils import CONTAINER_NAME, get_logs, remove_previous_container
 
 client = docker.from_env()
 
 
-def verify_container(container):
+def verify_container(container: Container) -> None:
     logs = get_logs(container)
     assert "Checking for script in /app/prestart.sh" in logs
     assert "Running script /app/prestart.sh" in logs
@@ -24,7 +19,7 @@ def verify_container(container):
     assert "Uvicorn running on http://127.0.0.1:80" in logs
 
 
-def test_env_vars_2():
+def test_env_vars_2() -> None:
     name = os.getenv("NAME")
     image = f"tiangolo/uvicorn-gunicorn:{name}"
     sleep_time = int(os.getenv("SLEEP_TIME", 1))
