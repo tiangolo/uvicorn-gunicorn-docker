@@ -3,7 +3,7 @@ FROM python:3.7-alpine3.8
 LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
 
 RUN apk add --no-cache --virtual .build-deps gcc libc-dev make \
-    && pip install uvicorn gunicorn \
+    && pip install --no-cache-dir uvicorn gunicorn \
     && apk del .build-deps gcc libc-dev make
 
 COPY ./start.sh /start.sh
