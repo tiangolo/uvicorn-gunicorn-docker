@@ -30,4 +30,4 @@ else
 fi
 
 # Start Gunicorn
-exec gunicorn -k uvicorn.workers.UvicornWorker -c "$GUNICORN_CONF" "$APP_MODULE"
+exec gunicorn -c "$GUNICORN_CONF" "$APP_MODULE"
