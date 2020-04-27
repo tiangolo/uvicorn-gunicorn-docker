@@ -3,6 +3,10 @@ import multiprocessing
 import os
 
 workers_per_core_str = os.getenv("WORKERS_PER_CORE", "1")
+max_workers_str = os.getenv("MAX_WORKERS")
+use_max_workers = None
+if max_workers_str:
+    use_max_workers = int(max_workers_str)
 web_concurrency_str = os.getenv("WEB_CONCURRENCY", None)
 
 host = os.getenv("HOST", "0.0.0.0")
@@ -22,6 +26,8 @@ if web_concurrency_str:
     assert web_concurrency > 0
 else:
     web_concurrency = max(int(default_web_concurrency), 2)
+    if use_max_workers:
+        web_concurrency = min(web_concurrency, use_max_workers)
 worker_class_str = os.getenv("WORKER_CLASS", "uvicorn.workers.UvicornWorker")
 accesslog_var = os.getenv("ACCESS_LOG", "-")
 use_accesslog = accesslog_var or None
@@ -57,6 +63,7 @@ log_data = {
     "accesslog": accesslog,
     # Additional, non-gunicorn variables
     "workers_per_core": workers_per_core,
+    "use_max_workers": use_max_workers,
     "host": host,
     "port": port,
 }
