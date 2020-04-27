@@ -9,6 +9,7 @@ from ..utils import (
     CONTAINER_NAME,
     get_config,
     get_logs,
+    get_process_names,
     get_response_text1,
     remove_previous_container,
 )
@@ -18,9 +19,14 @@ client = docker.from_env()
 
 def verify_container(container: DockerClient, response_text: str) -> None:
     config_data = get_config(container)
+    process_names = get_process_names(container)
+    config_data = get_config(container)
+    assert config_data["workers"] == 1
+    assert len(process_names) == 2  # Manager + worker
     assert config_data["host"] == "127.0.0.1"
     assert config_data["port"] == "9000"
     assert config_data["bind"] == "0.0.0.0:8080"
+    assert config_data["use_max_workers"] == 1
     logs = get_logs(container)
     assert "Checking for script in /app/prestart.sh" in logs
     assert "Running script /app/prestart.sh" in logs
@@ -40,7 +46,12 @@ def test_env_bind() -> None:
     container = client.containers.run(
         image,
         name=CONTAINER_NAME,
-        environment={"BIND": "0.0.0.0:8080", "HOST": "127.0.0.1", "PORT": "9000"},
+        environment={
+            "BIND": "0.0.0.0:8080",
+            "HOST": "127.0.0.1",
+            "PORT": "9000",
+            "MAX_WORKERS": "1",
+        },
         ports={"8080": "8000"},
         detach=True,
     )
