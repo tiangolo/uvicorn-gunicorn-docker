@@ -1,4 +1,4 @@
-name: Deploy Docker Images
+name: Deploy
 
 on:
   push:
