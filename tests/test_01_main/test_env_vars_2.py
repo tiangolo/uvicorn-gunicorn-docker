@@ -24,7 +24,6 @@ def verify_container(container: Container) -> None:
     assert config_data["port"] == "80"
     assert config_data["loglevel"] == "warning"
     assert config_data["bind"] == "127.0.0.1:80"
-    assert config_data["worker_class"] == "uvicorn.workers.UvicornWorker"
     assert config_data["graceful_timeout"] == 120
     assert config_data["timeout"] == 120
     assert config_data["keepalive"] == 5
@@ -37,6 +36,7 @@ def verify_container(container: Container) -> None:
         "Running inside /app/prestart.sh, you could add migrations to this file" in logs
     )
     assert "loglevel: debug" in logs
+    assert "Using worker: uvicorn.workers.UvicornWorker" in logs
 
 
 def test_env_vars_2() -> None:

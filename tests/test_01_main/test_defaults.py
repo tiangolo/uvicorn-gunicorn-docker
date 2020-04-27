@@ -27,7 +27,6 @@ def verify_container(container: DockerClient, response_text: str) -> None:
     assert config_data["loglevel"] == "info"
     assert config_data["workers"] >= 2
     assert config_data["bind"] == "0.0.0.0:80"
-    assert config_data["worker_class"] == "uvicorn.workers.UvicornWorker"
     assert config_data["graceful_timeout"] == 120
     assert config_data["timeout"] == 120
     assert config_data["keepalive"] == 5
@@ -41,6 +40,7 @@ def verify_container(container: DockerClient, response_text: str) -> None:
     )
     assert '"GET / HTTP/1.1" 200' in logs
     assert "[INFO] Application startup complete." in logs
+    assert "Using worker: uvicorn.workers.UvicornWorker" in logs
 
 
 def test_defaults() -> None:
