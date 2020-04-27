@@ -27,7 +27,9 @@ def verify_container(container: Container) -> None:
     assert config_data["worker_class"] == "uvicorn.workers.UvicornWorker"
     assert config_data["graceful_timeout"] == 120
     assert config_data["timeout"] == 120
-    assert config_data["keepalive"] == 120
+    assert config_data["keepalive"] == 5
+    assert config_data["errorlog"] == "-"
+    assert config_data["accesslog"] == "-"
     logs = get_logs(container)
     assert "Checking for script in /app/prestart.sh" in logs
     assert "Running script /app/prestart.sh" in logs

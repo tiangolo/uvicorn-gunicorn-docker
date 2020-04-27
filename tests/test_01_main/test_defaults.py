@@ -17,6 +17,8 @@ client = docker.from_env()
 
 
 def verify_container(container: DockerClient, response_text: str) -> None:
+    response = requests.get("http://127.0.0.1:8000")
+    assert response.text == response_text
     config_data = get_config(container)
     assert config_data["workers_per_core"] == 1
     assert config_data["host"] == "0.0.0.0"
@@ -27,15 +29,17 @@ def verify_container(container: DockerClient, response_text: str) -> None:
     assert config_data["worker_class"] == "uvicorn.workers.UvicornWorker"
     assert config_data["graceful_timeout"] == 120
     assert config_data["timeout"] == 120
-    assert config_data["keepalive"] == 120
+    assert config_data["keepalive"] == 5
+    assert config_data["errorlog"] == "-"
+    assert config_data["accesslog"] == "-"
     logs = get_logs(container)
     assert "Checking for script in /app/prestart.sh" in logs
     assert "Running script /app/prestart.sh" in logs
     assert (
         "Running inside /app/prestart.sh, you could add migrations to this file" in logs
     )
-    response = requests.get("http://127.0.0.1:8000")
-    assert response.text == response_text
+    assert '"GET / HTTP/1.1" 200' in logs
+    assert "[INFO] Application startup complete." in logs
 
 
 def test_defaults() -> None:
