@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/tiangolo/uvicorn-gunicorn-docker.svg?branch=master&status=passed)](https://travis-ci.com/tiangolo/uvicorn-gunicorn-docker)
+![Test](https://github.com/tiangolo/uvicorn-gunicorn-docker/workflows/Test/badge.svg) ![Deploy](https://github.com/tiangolo/uvicorn-gunicorn-docker/workflows/Deploy/badge.svg)
 
 ## Supported tags and respective `Dockerfile` links
 
