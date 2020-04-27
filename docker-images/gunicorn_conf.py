@@ -23,17 +23,22 @@ if web_concurrency_str:
 else:
     web_concurrency = max(int(default_web_concurrency), 2)
 worker_class_str = os.getenv("WORKER_CLASS", "uvicorn.workers.UvicornWorker")
+accesslog_var = os.getenv("ACCESS_LOG", "-")
+use_accesslog = accesslog_var or None
+errorlog_var = os.getenv("ERROR_LOG", "-")
+use_errorlog = errorlog_var or None
 graceful_timeout_str = os.getenv("GRACEFUL_TIMEOUT", "120")
 timeout_str = os.getenv("TIMEOUT", "120")
-keepalive_str = os.getenv("KEEPALIVE", "120")
+keepalive_str = os.getenv("KEEP_ALIVE", "5")
 
 # Gunicorn config variables
 loglevel = use_loglevel
 workers = web_concurrency
 bind = use_bind
-errorlog = "-"
+errorlog = use_errorlog
 worker_tmp_dir = "/dev/shm"
 worker_class = worker_class_str
+accesslog = use_accesslog
 graceful_timeout = int(graceful_timeout_str)
 timeout = int(timeout_str)
 keepalive = int(keepalive_str)
@@ -44,13 +49,15 @@ log_data = {
     "loglevel": loglevel,
     "workers": workers,
     "bind": bind,
-    # Additional, non-gunicorn variables
-    "workers_per_core": workers_per_core,
-    "host": host,
-    "port": port,
     "worker_class": worker_class,
     "graceful_timeout": graceful_timeout,
     "timeout": timeout,
     "keepalive": keepalive,
+    "errorlog": errorlog,
+    "accesslog": accesslog,
+    # Additional, non-gunicorn variables
+    "workers_per_core": workers_per_core,
+    "host": host,
+    "port": port,
 }
 print(json.dumps(log_data))
