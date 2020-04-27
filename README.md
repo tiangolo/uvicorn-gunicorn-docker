@@ -526,6 +526,7 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* Add `slim` version. PR [#40](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/40).
 * Remove leftover unneeded config for tests. PR [#39](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/39).
 * Add extra configs, tests, and docs for:
     * `WORKER_CLASS`
