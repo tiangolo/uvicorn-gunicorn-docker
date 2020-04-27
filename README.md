@@ -525,6 +525,16 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* Add extra configs, tests, and docs for:
+    * `WORKER_CLASS`
+    * `TIMEOUT`
+    * `KEEP_ALIVE`
+    * `GRACEFUL_TIMEOUT`
+    * `ACCESS_LOG`
+    * `ERROR_LOG`
+    * `GUNICORN_CMD_ARGS`
+    * `MAX_WORKERS`
+    * PR [#38](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/38)
 * Set up CI using GitHub actions, they provide more free instances, so builds finish faster (4 min vs 9 min). PR [#37](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/37).
 * Add support for Python 3.8. PR [#36](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/36).
 * Refactor tests to remove custom testing Dockerfiles, generate them during tests. PR [#35](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/35).
