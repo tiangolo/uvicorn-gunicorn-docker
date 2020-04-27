@@ -174,6 +174,8 @@ You can set it like:
 docker run -d -p 80:80 -e GUNICORN_CONF="/app/custom_gunicorn_conf.py" myimage
 ```
 
+You can use the [config file](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/gunicorn_conf.py) from this image as a starting point for yours.
+
 #### `WORKERS_PER_CORE`
 
 This image will check how many CPU cores are available in the current server running your container.
@@ -203,6 +205,24 @@ docker run -d -p 80:80 -e WORKERS_PER_CORE="0.5" myimage
 In a server with 8 CPU cores, this would make it start only 4 worker processes.
 
 **Note**: By default, if `WORKERS_PER_CORE` is `1` and the server has only 1 CPU core, instead of starting 1 single worker, it will start 2. This is to avoid bad performance and blocking applications (server application) on small machines (server machine/cloud/etc). This can be overridden using `WEB_CONCURRENCY`.
+
+#### `MAX_WORKERS`
+
+Set the maximum number of workers to use.
+
+You can use it to let the image compute the number of workers automatically but making sure it's limited to a maximum.
+
+This can be useful, for example, if each worker uses a database connection and your database has a maximum limit of open connections.
+
+By default it's not set, meaning that it's unlimited.
+
+You can set it like:
+
+```bash
+docker run -d -p 80:80 -e MAX_WORKERS="24" myimage
+```
+
+This would make the image start at most 24 workers, independent of how many CPU cores are available in the server.
 
 #### `WEB_CONCURRENCY`
 
@@ -287,6 +307,112 @@ You can set it like:
 ```bash
 docker run -d -p 80:8080 -e LOG_LEVEL="warning" myimage
 ```
+
+#### `WORKER_CLASS`
+
+The class to be used by Gunicorn for the workers.
+
+By default, set to `uvicorn.workers.UvicornWorker`.
+
+The fact that it uses Uvicorn is what allows using ASGI applications like FastAPI and Starlette, and that is also what provides the maximum performance.
+
+You probably shouldn't change it.
+
+But if for some reason you need to use the alternative Uvicorn worker: `uvicorn.workers.UvicornH11Worker` you can set it with this environment variable.
+
+You can set it like:
+
+```bash
+docker run -d -p 80:8080 -e WORKER_CLASS="uvicorn.workers.UvicornH11Worker" myimage
+```
+
+#### `TIMEOUT`
+
+Workers silent for more than this many seconds are killed and restarted.
+
+Read more about it in the [Gunicorn docs: timeout](https://docs.gunicorn.org/en/stable/settings.html#timeout).
+
+By default, set to `120`.
+
+Notice that Uvicorn and ASGI frameworks like FastAPI and Starlette are async, not sync. So it's probably safe to have higher timeouts than for sync workers.
+
+You can set it like:
+
+```bash
+docker run -d -p 80:8080 -e TIMEOUT="20" myimage
+```
+
+#### `KEEP_ALIVE`
+
+The number of seconds to wait for requests on a Keep-Alive connection.
+
+Read more about it in the [Gunicorn docs: keepalive](https://docs.gunicorn.org/en/stable/settings.html#keepalive).
+
+By default, set to `2`.
+
+You can set it like:
+
+```bash
+docker run -d -p 80:8080 -e KEEP_ALIVE="20" myimage
+```
+
+#### `GRACEFUL_TIMEOUT`
+
+Timeout for graceful workers restart.
+
+Read more about it in the [Gunicorn docs: graceful-timeout](https://docs.gunicorn.org/en/stable/settings.html#graceful-timeout).
+
+By default, set to `120`.
+
+You can set it like:
+
+```bash
+docker run -d -p 80:8080 -e GRACEFUL_TIMEOUT="20" myimage
+```
+
+#### `ACCESS_LOG`
+
+The access log file to write to.
+
+By default `"-"`, which means stdout (print in the Docker logs).
+
+If you want to disable `ACCESS_LOG`, set it to an empty value.
+
+For example, you could disable it with:
+
+```bash
+docker run -d -p 80:8080 -e ACCESS_LOG= myimage
+```
+
+#### `ERROR_LOG`
+
+The error log file to write to.
+
+By default `"-"`, which means stderr (print in the Docker logs).
+
+If you want to disable `ERROR_LOG`, set it to an empty value.
+
+For example, you could disable it with:
+
+```bash
+docker run -d -p 80:8080 -e ERROR_LOG= myimage
+```
+
+#### `GUNICORN_CMD_ARGS`
+
+Any additional command line settings for Gunicorn can be passed in the `GUNICORN_CMD_ARGS` environment variable.
+
+Read more about it in the [Gunicorn docs: Settings](https://docs.gunicorn.org/en/stable/settings.html#settings).
+
+These settings will have precedence over the other environment variables and any Gunicorn config file.
+
+For example, if you have a custom TLS/SSL certificate that you want to use, you could copy them to the Docker image or mount them in the container, and set [`--keyfile` and `--certfile`](http://docs.gunicorn.org/en/latest/settings.html#ssl) to the location of the files, for example:
+
+```bash
+docker run -d -p 80:8080 -e GUNICORN_CMD_ARGS="--keyfile=/secrets/key.pem --certfile=/secrets/cert.pem" -e PORT=443 myimage
+```
+
+**Note**: instead of handling TLS/SSL yourself and configuring it in the container, it's recommended to use a "TLS Termination Proxy" like [Traefik](https://docs.traefik.io/). You can read more about it in the [FastAPI documentation about HTTPS](https://fastapi.tiangolo.com/deployment/#https).
 
 #### `PRE_START_PATH`
 
