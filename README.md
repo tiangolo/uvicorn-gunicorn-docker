@@ -174,6 +174,8 @@ You can set it like:
 docker run -d -p 80:80 -e GUNICORN_CONF="/app/custom_gunicorn_conf.py" myimage
 ```
 
+You can use the [config file](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/gunicorn_conf.py) from this image as a starting point for yours.
+
 #### `WORKERS_PER_CORE`
 
 This image will check how many CPU cores are available in the current server running your container.
@@ -203,6 +205,24 @@ docker run -d -p 80:80 -e WORKERS_PER_CORE="0.5" myimage
 In a server with 8 CPU cores, this would make it start only 4 worker processes.
 
 **Note**: By default, if `WORKERS_PER_CORE` is `1` and the server has only 1 CPU core, instead of starting 1 single worker, it will start 2. This is to avoid bad performance and blocking applications (server application) on small machines (server machine/cloud/etc). This can be overridden using `WEB_CONCURRENCY`.
+
+#### `MAX_WORKERS`
+
+Set the maximum number of workers to use.
+
+You can use it to let the image compute the number of workers automatically but making sure it's limited to a maximum.
+
+This can be useful, for example, if each worker uses a database connection and your database has a maximum limit of open connections.
+
+By default it's not set, meaning that it's unlimited.
+
+You can set it like:
+
+```bash
+docker run -d -p 80:80 -e MAX_WORKERS="24" myimage
+```
+
+This would make the image start at most 24 workers, independent of how many CPU cores are available in the server.
 
 #### `WEB_CONCURRENCY`
 
