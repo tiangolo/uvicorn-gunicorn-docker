@@ -28,7 +28,6 @@ else:
     web_concurrency = max(int(default_web_concurrency), 2)
     if use_max_workers:
         web_concurrency = min(web_concurrency, use_max_workers)
-worker_class_str = os.getenv("WORKER_CLASS", "uvicorn.workers.UvicornWorker")
 accesslog_var = os.getenv("ACCESS_LOG", "-")
 use_accesslog = accesslog_var or None
 errorlog_var = os.getenv("ERROR_LOG", "-")
@@ -43,7 +42,6 @@ workers = web_concurrency
 bind = use_bind
 errorlog = use_errorlog
 worker_tmp_dir = "/dev/shm"
-worker_class = worker_class_str
 accesslog = use_accesslog
 graceful_timeout = int(graceful_timeout_str)
 timeout = int(timeout_str)
@@ -55,7 +53,6 @@ log_data = {
     "loglevel": loglevel,
     "workers": workers,
     "bind": bind,
-    "worker_class": worker_class,
     "graceful_timeout": graceful_timeout,
     "timeout": timeout,
     "keepalive": keepalive,
