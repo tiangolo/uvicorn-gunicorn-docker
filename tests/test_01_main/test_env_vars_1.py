@@ -23,6 +23,10 @@ def verify_container(container: DockerClient, response_text: str) -> None:
     assert config_data["port"] == "8000"
     assert config_data["loglevel"] == "warning"
     assert config_data["bind"] == "0.0.0.0:8000"
+    assert config_data["worker_class"] == "uvicorn.workers.UvicornH11Worker"
+    assert config_data["graceful_timeout"] == 20
+    assert config_data["timeout"] == 20
+    assert config_data["keepalive"] == 20
     logs = get_logs(container)
     assert "Checking for script in /app/prestart.sh" in logs
     assert "Running script /app/prestart.sh" in logs
@@ -42,7 +46,15 @@ def test_env_vars_1() -> None:
     container = client.containers.run(
         image,
         name=CONTAINER_NAME,
-        environment={"WORKERS_PER_CORE": 2, "PORT": "8000", "LOG_LEVEL": "warning"},
+        environment={
+            "WORKERS_PER_CORE": 2,
+            "PORT": "8000",
+            "LOG_LEVEL": "warning",
+            "WORKER_CLASS": "uvicorn.workers.UvicornH11Worker",
+            "GRACEFUL_TIMEOUT": "20",
+            "TIMEOUT": "20",
+            "KEEPALIVE": "20",
+        },
         ports={"8000": "8000"},
         detach=True,
     )

@@ -22,14 +22,19 @@ def verify_container(container: Container) -> None:
     assert len(process_names) == 2  # Manager + worker
     assert config_data["host"] == "127.0.0.1"
     assert config_data["port"] == "80"
-    assert config_data["loglevel"] == "info"
+    assert config_data["loglevel"] == "warning"
     assert config_data["bind"] == "127.0.0.1:80"
+    assert config_data["worker_class"] == "uvicorn.workers.UvicornWorker"
+    assert config_data["graceful_timeout"] == 120
+    assert config_data["timeout"] == 120
+    assert config_data["keepalive"] == 120
     logs = get_logs(container)
     assert "Checking for script in /app/prestart.sh" in logs
     assert "Running script /app/prestart.sh" in logs
     assert (
         "Running inside /app/prestart.sh, you could add migrations to this file" in logs
     )
+    assert "loglevel: debug" in logs
 
 
 def test_env_vars_2() -> None:
@@ -40,7 +45,12 @@ def test_env_vars_2() -> None:
     container = client.containers.run(
         image,
         name=CONTAINER_NAME,
-        environment={"WEB_CONCURRENCY": 1, "HOST": "127.0.0.1"},
+        environment={
+            "WEB_CONCURRENCY": 1,
+            "HOST": "127.0.0.1",
+            "LOG_LEVEL": "warning",
+            "GUNICORN_CMD_ARGS": "--log-level debug",
+        },
         ports={"80": "8000"},
         detach=True,
     )

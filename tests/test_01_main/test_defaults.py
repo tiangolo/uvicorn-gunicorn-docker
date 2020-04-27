@@ -24,6 +24,10 @@ def verify_container(container: DockerClient, response_text: str) -> None:
     assert config_data["loglevel"] == "info"
     assert config_data["workers"] >= 2
     assert config_data["bind"] == "0.0.0.0:80"
+    assert config_data["worker_class"] == "uvicorn.workers.UvicornWorker"
+    assert config_data["graceful_timeout"] == 120
+    assert config_data["timeout"] == 120
+    assert config_data["keepalive"] == 120
     logs = get_logs(container)
     assert "Checking for script in /app/prestart.sh" in logs
     assert "Running script /app/prestart.sh" in logs
