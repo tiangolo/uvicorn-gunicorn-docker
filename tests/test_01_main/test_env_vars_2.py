@@ -36,7 +36,7 @@ def verify_container(container: Container) -> None:
         "Running inside /app/prestart.sh, you could add migrations to this file" in logs
     )
     assert "loglevel: debug" in logs
-    assert "Using worker: uvicorn.workers.UvicornWorker" in logs
+    assert "Using worker: uvicorn.workers.UvicornH11Worker" in logs
 
 
 def test_env_vars_2() -> None:
@@ -52,6 +52,7 @@ def test_env_vars_2() -> None:
             "HOST": "127.0.0.1",
             "LOG_LEVEL": "warning",
             "GUNICORN_CMD_ARGS": "--log-level debug",
+            "WORKER_CLASS": "uvicorn.workers.UvicornH11Worker",
         },
         ports={"80": "8000"},
         detach=True,

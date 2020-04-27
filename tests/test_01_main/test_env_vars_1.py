@@ -38,7 +38,6 @@ def verify_container(container: DockerClient, response_text: str) -> None:
     )
     assert '"GET / HTTP/1.1" 200' not in logs
     assert "[INFO] Application startup complete." not in logs
-    assert "Using worker: uvicorn.workers.UvicornH11Worker" in logs
 
 
 def test_env_vars_1() -> None:
@@ -54,7 +53,6 @@ def test_env_vars_1() -> None:
             "WORKERS_PER_CORE": 2,
             "PORT": "8000",
             "LOG_LEVEL": "warning",
-            "WORKER_CLASS": "uvicorn.workers.UvicornH11Worker",
             "GRACEFUL_TIMEOUT": "20",
             "TIMEOUT": "20",
             "KEEP_ALIVE": "20",
