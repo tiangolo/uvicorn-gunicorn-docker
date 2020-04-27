@@ -1,8 +1,10 @@
 name: Deploy Docker Images
+
 on:
   push:
     branches:
       - master
+
 jobs:
   build:
     strategy:
@@ -22,7 +24,6 @@ jobs:
             python_version: "3.7"
           - name: python3.6-alpine3.8
             python_version: "3.6"
-    
       fail-fast: true
     runs-on: ubuntu-18.04
     steps:
@@ -39,3 +40,5 @@ jobs:
           NAME: ${{ matrix.image.name }}
           DOCKERFILE: ${{ matrix.image.dockerfile }}
           PYTHON_VERSION: ${{ matrix.image.python_version }}
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}

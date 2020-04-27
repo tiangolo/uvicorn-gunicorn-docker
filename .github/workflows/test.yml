@@ -1,8 +1,10 @@
 name: Test Docker Images
+
 on:
   push:
   pull_request:
     types: [opened, synchronize]
+
 jobs:
   build:
     strategy:
@@ -22,7 +24,6 @@ jobs:
             python_version: "3.7"
           - name: python3.6-alpine3.8
             python_version: "3.6"
-    
       fail-fast: true
     runs-on: ubuntu-18.04
     steps:
