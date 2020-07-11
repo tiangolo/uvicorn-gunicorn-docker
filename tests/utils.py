@@ -1,6 +1,6 @@
 import json
 import os
-from typing import Any, Dict, List
+from typing import Any, Dict, Iterator, List
 
 from docker.client import DockerClient
 from docker.errors import NotFound
@@ -10,19 +10,15 @@ CONTAINER_NAME = "uvicorn-gunicorn-test"
 IMAGE_NAME = "uvicorn-gunicorn-testimage"
 
 
-def get_process_names(container: Container) -> List[str]:
-    top = container.top()
-    process_commands = [p[7] for p in top["Processes"]]
-    gunicorn_processes = [p for p in process_commands if "gunicorn" in p]
-    return gunicorn_processes
+def get_process_names(container: Container) -> List[Iterator[Any]]:
+    return [filter(lambda i: "gunicorn" in i, p) for p in container.top()["Processes"]]
 
 
 def get_gunicorn_conf_path(container: Container) -> str:
     gunicorn_processes = get_process_names(container)
-    first_process = gunicorn_processes[0]
+    first_process = list(gunicorn_processes[0])[0]
     first_part, partition, last_part = first_process.partition("-c")
-    gunicorn_conf = last_part.strip().split()[0]
-    return gunicorn_conf
+    return last_part.strip().split()[0]
 
 
 def get_config(container: Container) -> Dict[str, Any]:
