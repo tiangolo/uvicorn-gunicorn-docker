@@ -40,7 +40,6 @@ jobs:
         run: bash scripts/build-push.sh
         env:
           NAME: ${{ matrix.image.name }}
-          DOCKERFILE: ${{ matrix.image.dockerfile }}
           PYTHON_VERSION: ${{ matrix.image.python_version }}
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
