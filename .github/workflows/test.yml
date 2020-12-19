@@ -40,5 +40,4 @@ jobs:
         run: bash scripts/test.sh
         env:
           NAME: ${{ matrix.image.name }}
-          DOCKERFILE: ${{ matrix.image.dockerfile }}
           PYTHON_VERSION: ${{ matrix.image.python_version }}
