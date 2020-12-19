@@ -3,7 +3,7 @@ import time
 
 import docker
 import requests
-from docker.client import DockerClient
+from docker.models.containers import Container
 
 from ..utils import (
     CONTAINER_NAME,
@@ -16,7 +16,7 @@ from ..utils import (
 client = docker.from_env()
 
 
-def verify_container(container: DockerClient, response_text: str) -> None:
+def verify_container(container: Container, response_text: str) -> None:
     response = requests.get("http://127.0.0.1:8000")
     assert response.text == response_text
     config_data = get_config(container)
