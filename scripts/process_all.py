@@ -3,6 +3,10 @@ import subprocess
 import sys
 
 environments = [
+    {"NAME": "python3.9-alpine", "PYTHON_VERSION": "3.9"},
+    {"NAME": "python3.9-alpine3.12", "PYTHON_VERSION": "3.9"},
+    {"NAME": "python3.9-slim", "PYTHON_VERSION": "3.9"},
+    {"NAME": "python3.9", "PYTHON_VERSION": "3.9"},
     {"NAME": "latest", "PYTHON_VERSION": "3.8"},
     {"NAME": "python3.8", "PYTHON_VERSION": "3.8"},
     {"NAME": "python3.7", "PYTHON_VERSION": "3.7"},
