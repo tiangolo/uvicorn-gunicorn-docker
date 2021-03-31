@@ -20,8 +20,9 @@ jobs:
             python_version: "3.7"
           - name: python3.6
             python_version: "3.6"
-          - name: python3.9-slim
-            python_version: "3.9"
+          # Does not work very well...
+          # - name: python3.9-slim
+          #   python_version: "3.9"
           - name: python3.9-alpine3.13
             python_version: "3.9"
           - name: python3.8-slim
