@@ -1,4 +1,4 @@
-FROM fnndsc/ubuntu-python3:ubuntu20.04-python3.8.5
+FROM --platform=linux/amd64 fnndsc/ubuntu-python3:ubuntu20.04-python3.8.5
 
 LABEL maintainer="Kevin Mahoney <kevin@mandolin.com>"
 
@@ -20,6 +20,9 @@ WORKDIR /app/
 ENV PYTHONPATH=/app
 
 EXPOSE 80
+
+# Unset python3 entrypoint from base image.
+ENTRYPOINT [""]
 
 # Run the start script, it will check for an /app/prestart.sh script (e.g. for migrations)
 # And then will start Gunicorn with Uvicorn
