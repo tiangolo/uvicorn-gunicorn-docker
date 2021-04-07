@@ -1,10 +1,8 @@
 FROM --platform=linux/amd64 fnndsc/ubuntu-python3:ubuntu20.04-python3.8.5
 
-LABEL maintainer="Kevin Mahoney <kevin@mandolin.com>"
+LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
 
-RUN apt-get update && \
-    apt-get -yqq dist-upgrade && \
-    pip install --no-cache-dir "uvicorn[standard]" gunicorn
+RUN pip install --no-cache-dir "uvicorn[standard]" gunicorn
 
 COPY ./start.sh /start.sh
 RUN chmod +x /start.sh
