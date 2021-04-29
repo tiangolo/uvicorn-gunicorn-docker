@@ -2,7 +2,7 @@ FROM python:3.8-slim
 
 LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
 
-RUN pip install --no-cache-dir "uvicorn[standard]" gunicorn
+RUN pip install --no-cache-dir "uvicorn[standard]>=0.11.7" gunicorn
 
 COPY ./start.sh /start.sh
 RUN chmod +x /start.sh
