@@ -1,9 +1,14 @@
+from python:3.9
+
+COPY requirements.txt /tmp/requirements.txt
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
+
+
 FROM python:3.9-slim
 
 LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
 
-COPY requirements.txt /tmp/requirements.txt
-RUN pip install --no-cache-dir -r /tmp/requirements.txt
+COPY --from=0 /usr/local/lib/python3.9 /usr/local/lib/python3.9
 
 COPY ./start.sh /start.sh
 RUN chmod +x /start.sh
