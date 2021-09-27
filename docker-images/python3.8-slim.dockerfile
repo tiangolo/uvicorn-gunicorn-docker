@@ -8,7 +8,7 @@ FROM python:3.8-slim
 
 LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
 
-COPY --from=0 /usr/local/lib/python3.9 /usr/local/lib/python3.9
+COPY --from=0 /usr/local/lib/python3.8 /usr/local/lib/python3.8
 
 COPY ./start.sh /start.sh
 RUN chmod +x /start.sh
