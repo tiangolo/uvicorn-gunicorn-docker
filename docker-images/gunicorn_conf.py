@@ -9,6 +9,9 @@ if max_workers_str:
     use_max_workers = int(max_workers_str)
 web_concurrency_str = os.getenv("WEB_CONCURRENCY", None)
 
+threads_default = 1
+threads_str = os.getenv("THREADS", None)
+
 host = os.getenv("HOST", "0.0.0.0")
 port = os.getenv("PORT", "80")
 bind_env = os.getenv("BIND", None)
@@ -28,6 +31,13 @@ else:
     web_concurrency = max(int(default_web_concurrency), 2)
     if use_max_workers:
         web_concurrency = min(web_concurrency, use_max_workers)
+
+if threads_str:
+    threads = int(threads_str)
+    assert threads > 0
+else:
+    threads = threads_default
+
 accesslog_var = os.getenv("ACCESS_LOG", "-")
 use_accesslog = accesslog_var or None
 errorlog_var = os.getenv("ERROR_LOG", "-")
