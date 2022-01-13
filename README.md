@@ -365,6 +365,22 @@ docker run -d -p 80:80 -e WEB_CONCURRENCY="2" myimage
 
 This would make the image start 2 worker processes, independent of how many CPU cores are available in the server.
 
+#### `THREADS`
+
+Override the automatic definition of number of threads.
+
+By default:
+
+* 1
+
+You can set it like:
+
+```bash
+docker run -d -p 80:80 -e THREADS="4" myimage
+```
+
+This would make the image start 4 theads for each worker
+
 #### `HOST`
 
 The "host" used by Gunicorn, the IP where Gunicorn will listen for requests.
