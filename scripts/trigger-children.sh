@@ -8,7 +8,7 @@ body='{
 "branch":"master"
 }}'
 
-for child in tiangolo%2Fuvicorn-gunicorn-fastapi-docker tiangolo%2Fuvicorn-gunicorn-starlette-docker; do
+for child in hingston%2Fuvicorn-gunicorn-fastapi-docker hingston%2Fuvicorn-gunicorn-starlette-docker; do
    curl -s -X POST \
       -H "Content-Type: application/json" \
       -H "Accept: application/json" \
