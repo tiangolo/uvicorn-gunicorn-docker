@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-use_tag="tiangolo/uvicorn-gunicorn:$NAME"
+use_tag="hingston/uvicorn-gunicorn:$NAME"
 
 DOCKERFILE="$NAME"
 
