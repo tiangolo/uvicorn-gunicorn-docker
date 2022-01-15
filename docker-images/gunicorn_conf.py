@@ -46,6 +46,8 @@ accesslog = use_accesslog
 graceful_timeout = int(graceful_timeout_str)
 timeout = int(timeout_str)
 keepalive = int(keepalive_str)
+max_requests = 5000
+max_requests_jitter = 1000
 
 
 # For debugging and testing
