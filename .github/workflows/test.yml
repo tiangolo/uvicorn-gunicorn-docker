@@ -12,15 +12,15 @@ jobs:
           - name: python3.10-alpine3.15
             python_version: "3.10"
       fail-fast: true
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python
         uses: actions/setup-python@v2.3.1
         with:
-          python-version: "3.7"
+          python-version: "3.10"
       - name: Install Dependencies
-        run: python3.7 -m pip install docker pytest
+        run: python3.10 -m pip install docker pytest
       - name: Test Image
         run: bash scripts/test.sh
         env:
