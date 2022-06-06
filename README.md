@@ -1,34 +1,35 @@
-[![Test](https://github.com/tiangolo/uvicorn-gunicorn-docker/workflows/Test/badge.svg)](https://github.com/tiangolo/uvicorn-gunicorn-docker/actions?query=workflow%3ATest) [![Deploy](https://github.com/tiangolo/uvicorn-gunicorn-docker/workflows/Deploy/badge.svg)](https://github.com/tiangolo/uvicorn-gunicorn-docker/actions?query=workflow%3ADeploy)
+[![Test](https://github.com/monk-ee/uvicorn-gunicorn-docker/workflows/Test/badge.svg)](https://github.com/monk-ee/uvicorn-gunicorn-docker/actions?query=workflow%3ATest) [![Deploy](https://github.com/monk-ee/uvicorn-gunicorn-docker/workflows/Deploy/badge.svg)](https://github.com/monk-ee/uvicorn-gunicorn-docker/actions?query=workflow%3ADeploy)
 
 ## Supported tags and respective `Dockerfile` links
 
-* [`python3.9`, `latest` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.9.dockerfile)
-* [`python3.8`, _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.8.dockerfile)
-* [`python3.7`, _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.7.dockerfile)
-* [`python3.6` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.6.dockerfile)
-* [`python3.9-slim` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.9-slim.dockerfile)
-* [`python3.8-slim` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.8-slim.dockerfile)
+* [`python3.9`, `latest` _(Dockerfile)_](https://github.com/monk-ee/uvicorn-gunicorn-docker/blob/master/docker-images/python3.9.dockerfile)
+* [`python3.8`, _(Dockerfile)_](https://github.com/monk-ee/uvicorn-gunicorn-docker/blob/master/docker-images/python3.8.dockerfile)
+* [`python3.7`, _(Dockerfile)_](https://github.com/monk-ee/uvicorn-gunicorn-docker/blob/master/docker-images/python3.7.dockerfile)
+* [`python3.6` _(Dockerfile)_](https://github.com/monk-ee/uvicorn-gunicorn-docker/blob/master/docker-images/python3.6.dockerfile)
+* [`python3.9-slim` _(Dockerfile)_](https://github.com/monk-ee/uvicorn-gunicorn-docker/blob/master/docker-images/python3.9-slim.dockerfile)
+* [`python3.10-slim` _(Dockerfile)_](https://github.com/monk-ee/uvicorn-gunicorn-docker/blob/master/docker-images/python3.10-slim.dockerfile)
+* [`python3.8-slim` _(Dockerfile)_](https://github.com/monk-ee/uvicorn-gunicorn-docker/blob/master/docker-images/python3.8-slim.dockerfile)
 
 ## Discouraged tags
 
-* [`python3.9-alpine3.14` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.9-alpine3.14.dockerfile)
-* [`python3.8-alpine3.10` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.8-alpine3.10.dockerfile)
-* [`python3.7-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.7-alpine3.8.dockerfile)
-* [`python3.6-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.6-alpine3.8.dockerfile)
+* [`python3.9-alpine3.14` _(Dockerfile)_](https://github.com/monk-ee/uvicorn-gunicorn-docker/blob/master/docker-images/python3.9-alpine3.14.dockerfile)
+* [`python3.8-alpine3.10` _(Dockerfile)_](https://github.com/monk-ee/uvicorn-gunicorn-docker/blob/master/docker-images/python3.8-alpine3.10.dockerfile)
+* [`python3.7-alpine3.8` _(Dockerfile)_](https://github.com/monk-ee/uvicorn-gunicorn-docker/blob/master/docker-images/python3.7-alpine3.8.dockerfile)
+* [`python3.6-alpine3.8` _(Dockerfile)_](https://github.com/monk-ee/uvicorn-gunicorn-docker/blob/master/docker-images/python3.6-alpine3.8.dockerfile)
 
 To learn more about why Alpine images are discouraged for Python read the note at the end: [🚨 Alpine Python Warning](#-alpine-python-warning).
 
 ---
 
-**Note**: There are [tags for each build date](https://hub.docker.com/r/tiangolo/uvicorn-gunicorn/tags). If you need to "pin" the Docker image version you use, you can select one of those tags. E.g. `tiangolo/uvicorn-gunicorn:python3.7-2019-10-15`.
+**Note**: There are [tags for each build date](https://hub.docker.com/r/monk-ee/uvicorn-gunicorn/tags). If you need to "pin" the Docker image version you use, you can select one of those tags. E.g. `tiangolo/uvicorn-gunicorn:python3.7-2019-10-15`.
 
 # uvicorn-gunicorn
 
 [**Docker**](https://www.docker.com/) image with [**Uvicorn**](https://www.uvicorn.org/) managed by [**Gunicorn**](https://gunicorn.org/) for high-performance web applications in **[Python](https://www.python.org/) 3.6 and above** with performance auto-tuning. Optionally in a slim version or based on Alpine Linux.
 
-**GitHub repo**: [https://github.com/tiangolo/uvicorn-gunicorn-docker](https://github.com/tiangolo/uvicorn-gunicorn-docker)
+**GitHub repo**: [https://github.com/monk-ee/uvicorn-gunicorn-docker](https://github.com/monk-ee/uvicorn-gunicorn-docker)
 
-**Docker Hub image**: [https://hub.docker.com/r/tiangolo/uvicorn-gunicorn/](https://hub.docker.com/r/tiangolo/uvicorn-gunicorn/)
+**Docker Hub image**: [https://hub.docker.com/r/monkeemagic/uvicorn-gunicorn/](https://hub.docker.com/r/monkeemagic/uvicorn-gunicorn/)
 
 ## Description
 
