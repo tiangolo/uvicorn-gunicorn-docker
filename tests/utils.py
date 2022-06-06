@@ -56,6 +56,6 @@ def get_response_text2() -> str:
 
 
 def generate_dockerfile_content(name: str) -> str:
-    content = f"FROM tiangolo/uvicorn-gunicorn:{name}\n"
+    content = f"FROM monkeemagic/uvicorn-gunicorn:{name}\n"
     content += "COPY ./app /app"
     return content
