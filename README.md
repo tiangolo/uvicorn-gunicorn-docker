@@ -21,7 +21,7 @@ To learn more about why Alpine images are discouraged for Python read the note a
 
 ---
 
-**Note**: There are [tags for each build date](https://hub.docker.com/r/monk-ee/uvicorn-gunicorn/tags). If you need to "pin" the Docker image version you use, you can select one of those tags. E.g. `tiangolo/uvicorn-gunicorn:python3.7-2019-10-15`.
+**Note**: There are [tags for each build date](https://hub.docker.com/r/monkeemagic/uvicorn-gunicorn/tags). If you need to "pin" the Docker image version you use, you can select one of those tags. E.g. `tiangolo/uvicorn-gunicorn:python3.7-2019-10-15`.
 
 # uvicorn-gunicorn
 
@@ -143,7 +143,7 @@ You can use this image as a base image for other images.
 Assuming you have a file `requirements.txt`, you could have a `Dockerfile` like this:
 
 ```Dockerfile
-FROM tiangolo/uvicorn-gunicorn:python3.9
+FROM monkeemagic/uvicorn-gunicorn:python3.9
 
 COPY ./requirements.txt /app/requirements.txt
 
@@ -300,7 +300,7 @@ You can set it like:
 docker run -d -p 80:80 -e GUNICORN_CONF="/app/custom_gunicorn_conf.py" myimage
 ```
 
-You can use the [config file](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/gunicorn_conf.py) from this image as a starting point for yours.
+You can use the [config file](https://github.com/monk-ee/uvicorn-gunicorn-docker/blob/master/docker-images/gunicorn_conf.py) from this image as a starting point for yours.
 
 #### `WORKERS_PER_CORE`
 
