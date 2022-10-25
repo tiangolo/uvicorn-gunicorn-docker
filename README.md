@@ -106,8 +106,6 @@ You can use **Gunicorn** to start and manage multiple Uvicorn worker processes.
 
 That way, you get the best of concurrency and parallelism in simple deployments.
 
-That way, you get the best of concurrency and parallelism.
-
 ### `tiangolo/uvicorn-gunicorn`
 
 This image will set a sensible configuration based on the server it is running on (the amount of CPU cores available) without making sacrifices.
