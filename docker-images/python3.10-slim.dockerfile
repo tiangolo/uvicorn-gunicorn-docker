@@ -3,6 +3,9 @@ FROM python:3.10-slim
 LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
 
 COPY requirements.txt /tmp/requirements.txt
+
+RUN apt update && \
+    apt install -y build-essential
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
 COPY ./start.sh /start.sh
