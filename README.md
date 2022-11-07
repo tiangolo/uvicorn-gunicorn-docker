@@ -666,6 +666,7 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* ✏️ Fix typo, delete repeated line in README. PR [#147](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/147) by [@jiyeonseo](https://github.com/jiyeonseo).
 * 📝 Add note to discourage Alpine with Python. PR [#96](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/96) by [@tiangolo](https://github.com/tiangolo).
 * 📝 Add warning for Kubernetes, when to use this image. PR [#95](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/95) by [@tiangolo](https://github.com/tiangolo).
 * ✏️ Fix typo duplicate "Note" in Readme. PR [#92](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/92) by [@tiangolo](https://github.com/tiangolo).
