@@ -666,6 +666,7 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* ⬆️ Update docker requirement from ^4.2.0 to ^5.0.3. PR [#97](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/97) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump actions/setup-python from 1 to 4.1.0. PR [#142](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/142) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update isort requirement from ^4.3.21 to ^5.8.0. PR [#88](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/88) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump tiangolo/issue-manager from 0.2.0 to 0.4.0. PR [#85](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/85) by [@dependabot[bot]](https://github.com/apps/dependabot).
