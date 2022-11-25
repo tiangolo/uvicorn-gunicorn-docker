@@ -108,8 +108,6 @@ You can use **Gunicorn** to start and manage multiple Uvicorn worker processes.
 
 That way, you get the best of concurrency and parallelism in simple deployments.
 
-That way, you get the best of concurrency and parallelism.
-
 ### `tiangolo/uvicorn-gunicorn`
 
 This image will set a sensible configuration based on the server it is running on (the amount of CPU cores available) without making sacrifices.
@@ -670,6 +668,16 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* ⬆️ Upgrade Uvicorn to the last version supporting Python 3.6. PR [#155](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/155) by [@tiangolo](https://github.com/tiangolo).
+* ⬆️ Update black requirement from ^19.10b0 to ^20.8b1. PR [#87](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/87) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆️ Update mypy requirement from ^0.770 to ^0.971. PR [#143](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/143) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆️ Update docker requirement from ^4.2.0 to ^5.0.3. PR [#97](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/97) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆️ Bump actions/setup-python from 1 to 4.1.0. PR [#142](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/142) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆️ Update isort requirement from ^4.3.21 to ^5.8.0. PR [#88](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/88) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆️ Bump tiangolo/issue-manager from 0.2.0 to 0.4.0. PR [#85](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/85) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆️ Update pytest requirement from ^5.4.1 to ^7.0.1. PR [#123](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/123) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆️ Bump actions/checkout from 2 to 3.1.0. PR [#145](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/145) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ✏️ Fix typo, delete repeated line in README. PR [#147](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/147) by [@jiyeonseo](https://github.com/jiyeonseo).
 * 📝 Add note to discourage Alpine with Python. PR [#96](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/96) by [@tiangolo](https://github.com/tiangolo).
 * 📝 Add warning for Kubernetes, when to use this image. PR [#95](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/95) by [@tiangolo](https://github.com/tiangolo).
 * ✏️ Fix typo duplicate "Note" in Readme. PR [#92](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/92) by [@tiangolo](https://github.com/tiangolo).
