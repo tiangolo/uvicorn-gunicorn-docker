@@ -680,6 +680,7 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* 👷 Add GitHub Action for Docker Hub description. PR [#167](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/167) by [@tiangolo](https://github.com/tiangolo).
 
 ### 0.7.0
 
