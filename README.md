@@ -2,11 +2,13 @@
 
 ## Supported tags and respective `Dockerfile` links
 
-* [`python3.10`, `latest` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.10.dockerfile)
+* [`python3.11`, `latest` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.11.dockerfile)
+* [`python3.10`, _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.10.dockerfile)
 * [`python3.9`, _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.9.dockerfile)
 * [`python3.8`, _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.8.dockerfile)
 * [`python3.7`, _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.7.dockerfile)
 * [`python3.6` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.6.dockerfile)
+* [`python3.11-slim` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.11-slim.
 * [`python3.10-slim` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.10-slim.dockerfile)
 * [`python3.9-slim` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.9-slim.dockerfile)
 * [`python3.8-slim` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.8-slim.dockerfile)
@@ -142,7 +144,7 @@ You can use this image as a base image for other images.
 Assuming you have a file `requirements.txt`, you could have a `Dockerfile` like this:
 
 ```Dockerfile
-FROM tiangolo/uvicorn-gunicorn:python3.10
+FROM tiangolo/uvicorn-gunicorn:python3.11
 
 COPY ./requirements.txt /app/requirements.txt
 
@@ -200,7 +202,7 @@ COPY ./pyproject.toml ./poetry.lock* /tmp/
 
 RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
 
-FROM tiangolo/uvicorn-gunicorn:python3.10
+FROM tiangolo/uvicorn-gunicorn:python3.11
 
 COPY --from=requirements-stage /tmp/requirements.txt /app/requirements.txt
 
