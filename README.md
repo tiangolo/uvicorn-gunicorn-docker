@@ -668,6 +668,7 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* 👷 Do not run double CI for PRs, run on push only on master. PR [#157](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/157) by [@tiangolo](https://github.com/tiangolo).
 * ✨ Add support for Python 3.10. PR [#99](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/99) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Add GitHub Action alls-green. PR [#156](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/156) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Upgrade Uvicorn to the last version supporting Python 3.6. PR [#155](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/155) by [@tiangolo](https://github.com/tiangolo).
