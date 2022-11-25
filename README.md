@@ -680,6 +680,7 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* ⬆️ Update docker requirement from ^5.0.3 to ^6.0.1. PR [#163](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/163) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ✨ Add support for Python 3.11. PR [#159](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/159) by [@tiangolo](https://github.com/tiangolo).
 * 🔧 Update Dependabot config. PR [#162](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/162) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Upgrade Uvicorn version. PR [#161](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/161) by [@tiangolo](https://github.com/tiangolo).
