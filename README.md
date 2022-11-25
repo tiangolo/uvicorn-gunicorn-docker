@@ -666,6 +666,7 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* ⬆️ Upgrade Uvicorn to the last version supporting Python 3.6. PR [#155](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/155) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Update black requirement from ^19.10b0 to ^20.8b1. PR [#87](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/87) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update mypy requirement from ^0.770 to ^0.971. PR [#143](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/143) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update docker requirement from ^4.2.0 to ^5.0.3. PR [#97](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/97) by [@dependabot[bot]](https://github.com/apps/dependabot).
