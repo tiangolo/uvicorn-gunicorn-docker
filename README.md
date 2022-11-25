@@ -680,19 +680,48 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+
+### 0.7.0
+
+The highlights of this release are:
+
+* Support for Python 3.10 and 3.11.
+* Deprecation of Python 3.6.
+    * The last Python 3.6 image tag was pushed and is available in Docker Hub, but it won't be updated or maintained anymore.
+    * The last image with a date tag is `python3.6-2022-11-25`.
+* Upgraded versions of all the dependencies.
+
+#### Features
+
+* ✨ Add support for Python 3.11. PR [#159](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/159) by [@tiangolo](https://github.com/tiangolo).
+* ⬆️ Upgrade Uvicorn version. PR [#161](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/161) by [@tiangolo](https://github.com/tiangolo).
+* ✨ Add support for Python 3.10. PR [#99](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/99) by [@tiangolo](https://github.com/tiangolo).
+* ⬆️ Upgrade Uvicorn to the last version supporting Python 3.6. PR [#155](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/155) by [@tiangolo](https://github.com/tiangolo).
+* ✨ Add Python 3.9 and Alpine Python 3.9. PR [#52](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/52) by [@graue70](https://github.com/graue70).
+* ⬆️ Install uvicorn[standard] to include uvloop and Gunicorn support. PR [#54](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/54) by [@tiangolo](https://github.com/tiangolo).
+
+#### Breaking Changes
+
+* 🔥 Deprecate and remove Python 3.6. PR [#160](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/160) by [@tiangolo](https://github.com/tiangolo).
+
+#### Docs
+
+* ✏️ Fix typo, delete repeated line in README. PR [#147](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/147) by [@jiyeonseo](https://github.com/jiyeonseo).
+* 📝 Add note to discourage Alpine with Python. PR [#96](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/96) by [@tiangolo](https://github.com/tiangolo).
+* 📝 Add warning for Kubernetes, when to use this image. PR [#95](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/95) by [@tiangolo](https://github.com/tiangolo).
+* ✏️ Fix typo duplicate "Note" in Readme. PR [#92](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/92) by [@tiangolo](https://github.com/tiangolo).
+* ✏️ Fix typo (type annotation) in tests. PR [#55](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/55) by [@tiangolo](https://github.com/tiangolo).
+
+#### Internal
+
 * ⬆️ Update mypy requirement from ^0.971 to ^0.991. PR [#166](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/166) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update autoflake requirement from ^1.3.1 to ^2.0.0. PR [#165](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/165) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update black requirement from ^20.8b1 to ^22.10. PR [#164](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/164) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update docker requirement from ^5.0.3 to ^6.0.1. PR [#163](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/163) by [@dependabot[bot]](https://github.com/apps/dependabot).
-* ✨ Add support for Python 3.11. PR [#159](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/159) by [@tiangolo](https://github.com/tiangolo).
 * 🔧 Update Dependabot config. PR [#162](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/162) by [@tiangolo](https://github.com/tiangolo).
-* ⬆️ Upgrade Uvicorn version. PR [#161](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/161) by [@tiangolo](https://github.com/tiangolo).
-* 🔥 Deprecate and remove Python 3.6. PR [#160](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/160) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Add scheduled CI every Monday. PR [#158](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/158) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Do not run double CI for PRs, run on push only on master. PR [#157](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/157) by [@tiangolo](https://github.com/tiangolo).
-* ✨ Add support for Python 3.10. PR [#99](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/99) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Add GitHub Action alls-green. PR [#156](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/156) by [@tiangolo](https://github.com/tiangolo).
-* ⬆️ Upgrade Uvicorn to the last version supporting Python 3.6. PR [#155](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/155) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Update black requirement from ^19.10b0 to ^20.8b1. PR [#87](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/87) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update mypy requirement from ^0.770 to ^0.971. PR [#143](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/143) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update docker requirement from ^4.2.0 to ^5.0.3. PR [#97](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/97) by [@dependabot[bot]](https://github.com/apps/dependabot).
@@ -701,17 +730,11 @@ All the image tags, configurations, environment variables and application option
 * ⬆️ Bump tiangolo/issue-manager from 0.2.0 to 0.4.0. PR [#85](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/85) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update pytest requirement from ^5.4.1 to ^7.0.1. PR [#123](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/123) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump actions/checkout from 2 to 3.1.0. PR [#145](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/145) by [@dependabot[bot]](https://github.com/apps/dependabot).
-* ✏️ Fix typo, delete repeated line in README. PR [#147](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/147) by [@jiyeonseo](https://github.com/jiyeonseo).
-* 📝 Add note to discourage Alpine with Python. PR [#96](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/96) by [@tiangolo](https://github.com/tiangolo).
-* 📝 Add warning for Kubernetes, when to use this image. PR [#95](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/95) by [@tiangolo](https://github.com/tiangolo).
-* ✏️ Fix typo duplicate "Note" in Readme. PR [#92](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/92) by [@tiangolo](https://github.com/tiangolo).
 * 📌 Add external dependencies and Dependabot to get automatic upgrade PRs. PR [#84](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/84) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Update Latest Changes. PR [#83](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/83) by [@tiangolo](https://github.com/tiangolo).
-* ✨ Add Python 3.9 and Alpine Python 3.9. PR [#52](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/52) by [@graue70](https://github.com/graue70).
 * 🔥 Remove unused Travis and old GitHub Actions configs. PR [#56](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/56) by [@tiangolo](https://github.com/tiangolo).
-* ✏️ Fix typo (type annotation) in tests. PR [#55](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/55) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Add GitHub Action latest-changes, update issue-manager, add funding. PR [#53](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/53) by [@tiangolo](https://github.com/tiangolo).
-* ⬆️ Install uvicorn[standard] to include uvloop and Gunicorn support. PR [#54](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/54) by [@tiangolo](https://github.com/tiangolo).
+
 ### 0.6.0
 
 * Add docs about installing and pinning dependencies. PR [#41](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/41).
