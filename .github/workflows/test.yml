@@ -5,7 +5,9 @@ on:
     branches:
       - master
   pull_request:
-    types: [opened, synchronize]
+    types:
+      - opened
+      - synchronize
   schedule:
     # cron every week on monday
     - cron: "0 0 * * 1"
@@ -16,7 +18,9 @@ jobs:
       matrix:
         image:
           - name: latest
-            python_version: "3.10"
+            python_version: "3.11"
+          - name: python3.11
+            python_version: "3.11"
           - name: python3.10
             python_version: "3.10"
           - name: python3.9
@@ -25,6 +29,8 @@ jobs:
             python_version: "3.8"
           - name: python3.7
             python_version: "3.7"
+          - name: python3.11-slim
+            python_version: "3.11"
           - name: python3.10-slim
             python_version: "3.10"
           - name: python3.9-slim
@@ -38,7 +44,7 @@ jobs:
           - name: python3.7-alpine3.8
             python_version: "3.7"
       fail-fast: true
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.1.0
       - name: Set up Python
