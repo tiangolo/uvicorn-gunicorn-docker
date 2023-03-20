@@ -13,6 +13,9 @@ export APP_MODULE=${APP_MODULE:-"$MODULE_NAME:$VARIABLE_NAME"}
 HOST=${HOST:-0.0.0.0}
 PORT=${PORT:-80}
 LOG_LEVEL=${LOG_LEVEL:-info}
+ACCESS_LOG=${ACCESS_LOG-"-"}   # Set ACCESS_LOG="-" only if unset
+
+# If ACCESS_LOG was set and is null, disable access log
 ACCESS_LOG_OPTION=""
 if [ -z "$ACCESS_LOG" ] ; then
     ACCESS_LOG_OPTION="--no-access-log"

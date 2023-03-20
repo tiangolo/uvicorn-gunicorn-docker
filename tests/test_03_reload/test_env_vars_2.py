@@ -4,7 +4,7 @@ import time
 import docker
 from docker.models.containers import Container
 
-from ..utils import CONTAINER_NAME, get_config, get_logs, remove_previous_container
+from ..utils import CONTAINER_NAME, get_process_names, get_logs, remove_previous_container
 
 client = docker.from_env()
 
@@ -17,8 +17,8 @@ def verify_container(container: Container) -> None:
         "Running inside /app/prestart.sh, you could add migrations to this file" in logs
     )
     assert "Uvicorn running on http://127.0.0.1:80" in logs
-    config_data = get_config(container)
-    assert config_data["accesslog"] is None
+    uvicorn_cmd = get_process_names(container, name="uvicorn")[0]
+    assert "--no-access-log" in uvicorn_cmd
 
 
 def test_env_vars_2() -> None:

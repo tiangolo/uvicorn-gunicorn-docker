@@ -7,7 +7,7 @@ from docker.client import DockerClient
 
 from ..utils import (
     CONTAINER_NAME,
-    get_config,
+    get_process_names,
     get_logs,
     get_response_text1,
     remove_previous_container,
@@ -26,8 +26,8 @@ def verify_container(container: DockerClient, response_text: str) -> None:
     assert "Uvicorn running on http://0.0.0.0:80" in logs
     response = requests.get("http://127.0.0.1:8000")
     assert response.text == response_text
-    config_data = get_config(container)
-    assert config_data["accesslog"] == "-"
+    uvicorn_cmd = get_process_names(container, name="uvicorn")[0]
+    assert "--no-access-log" not in uvicorn_cmd
 
 
 def test_env_vars_1() -> None:

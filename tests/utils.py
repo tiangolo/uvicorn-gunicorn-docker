@@ -10,11 +10,11 @@ CONTAINER_NAME = "uvicorn-gunicorn-test"
 IMAGE_NAME = "uvicorn-gunicorn-testimage"
 
 
-def get_process_names(container: Container) -> List[str]:
+def get_process_names(container: Container, name: str = "gunicorn") -> List[str]:
     top = container.top()
     process_commands = [p[7] for p in top["Processes"]]
-    gunicorn_processes = [p for p in process_commands if "gunicorn" in p]
-    return gunicorn_processes
+    processes = [p for p in process_commands if name in p]
+    return processes
 
 
 def get_gunicorn_conf_path(container: Container) -> str:
