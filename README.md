@@ -680,6 +680,7 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* ⬆️ Bump actions/checkout from 3.1.0 to 3.3.0. PR [#170](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/170) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Update latest changes token. PR [#178](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/178) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Add GitHub Action to update Docker Hub description, fix. PR [#168](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/168) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Add GitHub Action for Docker Hub description. PR [#167](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/167) by [@tiangolo](https://github.com/tiangolo).
