@@ -680,6 +680,7 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* ⬆️ Update mypy requirement from ^0.991 to ^1.1. PR [#173](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/173) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update black requirement from ^22.10 to ^23.1. PR [#171](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/171) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump actions/checkout from 3.1.0 to 3.3.0. PR [#170](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/170) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Update latest changes token. PR [#178](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/178) by [@tiangolo](https://github.com/tiangolo).
