@@ -1,5 +1,7 @@
 FROM python:3.7
 
+ENV PYTHONDONTWRITEBYTECODE=1
+
 LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
 
 COPY requirements.txt /tmp/requirements.txt
