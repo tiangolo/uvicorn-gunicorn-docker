@@ -41,22 +41,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.1.0
-      - name: Build
+      - name: Set Dockerfile name
         if: matrix.image.name != 'latest'
+        run: echo "DOCKERFILE_NAME=${{ matrix.image.name }}" >> $GITHUB_ENV
+      - name: Set Dockerfile name latest
+        if: matrix.image.name == 'latest'
+        run: echo "DOCKERFILE_NAME=python${{ matrix.image.python_version }}" >> $GITHUB_ENV
+      - name: Build
         uses: docker/build-push-action@v2
         with:
           push: false
           tags: tiangolo/uvicorn-gunicorn:${{ matrix.image.name }}
           context: ./docker-images/
-          file: ./docker-images/${{ matrix.image.name }}.dockerfile
-      - name: Build latest
-        if: matrix.image.name == 'latest'
-        uses: docker/build-push-action@v2
-        with:
-          push: false
-          tags: tiangolo/uvicorn-gunicorn:latest
-          context: ./docker-images/
-          file: ./docker-images/python${{ matrix.image.python_version }}.dockerfile
+          file: ./docker-images/${{ env.DOCKERFILE_NAME }}.dockerfile
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -64,16 +61,9 @@ jobs:
       - name: Install Dependencies
         run: python -m pip install docker pytest
       - name: Test Image
-        if: matrix.image.name != 'latest'
         run: bash scripts/test.sh
         env:
           NAME: ${{ matrix.image.name }}
-          PYTHON_VERSION: ${{ matrix.image.python_version }}
-      - name: Test Image latest
-        if: matrix.image.name == 'latest'
-        run: bash scripts/test.sh
-        env:
-          NAME: latest
           PYTHON_VERSION: ${{ matrix.image.python_version }}
   check:
     if: always()
