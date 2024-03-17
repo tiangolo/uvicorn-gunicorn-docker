@@ -68,7 +68,7 @@ jobs:
   check:
     if: always()
     needs:
-    - build
+    - test
     runs-on: ubuntu-latest
     steps:
     - name: Decide whether the needed jobs succeeded or failed
