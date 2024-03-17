@@ -17,6 +17,8 @@ jobs:
     strategy:
       matrix:
         image:
+          - name: latest
+            python_version: "3.11"
           - name: python3.11
             python_version: "3.11"
           - name: python3.10
@@ -40,6 +42,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.0
       - name: Build
+        if: matrix.image.name != 'latest'
         uses: docker/build-push-action@v2
         with:
           push: false
@@ -47,13 +50,13 @@ jobs:
           context: ./docker-images/
           file: ./docker-images/${{ matrix.image.name }}.dockerfile
       - name: Build latest
-        if: matrix.image.name == 'python3.11'
+        if: matrix.image.name == 'latest'
         uses: docker/build-push-action@v2
         with:
           push: false
           tags: tiangolo/uvicorn-gunicorn:latest
           context: ./docker-images/
-          file: ./docker-images/${{ matrix.image.name }}.dockerfile
+          file: ./docker-images/python${{ matrix.image.python_version }}.dockerfile
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -61,12 +64,13 @@ jobs:
       - name: Install Dependencies
         run: python -m pip install docker pytest
       - name: Test Image
+        if: matrix.image.name != 'latest'
         run: bash scripts/test.sh
         env:
           NAME: ${{ matrix.image.name }}
           PYTHON_VERSION: ${{ matrix.image.python_version }}
       - name: Test Image latest
-        if: matrix.image.name == 'python3.11'
+        if: matrix.image.name == 'latest'
         run: bash scripts/test.sh
         env:
           NAME: latest
