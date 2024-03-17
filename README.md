@@ -678,6 +678,7 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* 🔥 Remove Alpine support. PR [#193](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/193) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Bump uvicorn[standard] from 0.20.0 to 0.21.0. PR [#174](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/174) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update mypy requirement from ^0.991 to ^1.1. PR [#173](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/173) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update black requirement from ^22.10 to ^23.1. PR [#171](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/171) by [@dependabot[bot]](https://github.com/apps/dependabot).
