@@ -17,8 +17,6 @@ jobs:
     strategy:
       matrix:
         image:
-          - name: latest
-            python_version: "3.11"
           - name: python3.11
             python_version: "3.11"
           - name: python3.10
