@@ -14,7 +14,7 @@
 
 ## Deprecated tags
 
-🚨 These tags are no longer supported or maintained, they are removed from the GitHub repository, but the last versions pushed might still be available in Docker Hub if anyone has been pulling them.
+🚨 These tags are no longer supported or maintained, they are removed from the GitHub repository, but the last versions pushed might still be available in Docker Hub if anyone has been pulling them:
 
 * `python3.9-alpine3.14`
 * `python3.8-alpine3.10`
@@ -36,7 +36,7 @@ The last date tags for these versions are:
 
 # uvicorn-gunicorn
 
-[**Docker**](https://www.docker.com/) image with [**Uvicorn**](https://www.uvicorn.org/) managed by [**Gunicorn**](https://gunicorn.org/) for high-performance web applications in **[Python](https://www.python.org/)** with performance auto-tuning. Optionally in a slim version or based on Alpine Linux.
+[**Docker**](https://www.docker.com/) image with [**Uvicorn**](https://www.uvicorn.org/) managed by [**Gunicorn**](https://gunicorn.org/) for high-performance web applications in **[Python](https://www.python.org/)** with performance auto-tuning.
 
 **GitHub repo**: [https://github.com/tiangolo/uvicorn-gunicorn-docker](https://github.com/tiangolo/uvicorn-gunicorn-docker)
 
@@ -124,7 +124,7 @@ This image will set a sensible configuration based on the server it is running o
 
 It has sensible defaults, but you can configure it with environment variables or override the configuration files.
 
-There is also a slim version and another one based on Alpine Linux. If you want one of those, use one of the tags from above.
+There is also a slim version. If you want one of those, use one of the tags from above.
 
 ### Frameworks
 
