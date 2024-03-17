@@ -678,6 +678,7 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* 📝 Update test badge in `README.md`. PR [#197](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/197) by [@alejsdev](https://github.com/alejsdev).
 * ✨ Add support for multi-arch builds, including support for `arm64` (e.g. Mac M1). PR [#195](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/195) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Bump gunicorn from 20.1.0 to 21.2.0. PR [#185](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/185) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump actions/checkout from 3.3.0 to 4.1.0. PR [#189](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/189) by [@dependabot[bot]](https://github.com/apps/dependabot).
