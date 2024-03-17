@@ -13,7 +13,7 @@ on:
     - cron: "0 0 * * 1"
 
 jobs:
-  build:
+  test:
     strategy:
       matrix:
         image:
@@ -41,12 +41,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.1.0
+      - name: Set Dockerfile name
+        if: matrix.image.name != 'latest'
+        run: echo "DOCKERFILE_NAME=${{ matrix.image.name }}" >> $GITHUB_ENV
+      - name: Set Dockerfile name latest
+        if: matrix.image.name == 'latest'
+        run: echo "DOCKERFILE_NAME=python${{ matrix.image.python_version }}" >> $GITHUB_ENV
+      - name: Build
+        uses: docker/build-push-action@v2
+        with:
+          push: false
+          tags: tiangolo/uvicorn-gunicorn:${{ matrix.image.name }}
+          context: ./docker-images/
+          file: ./docker-images/${{ env.DOCKERFILE_NAME }}.dockerfile
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.7"
+          python-version: "3.10"
       - name: Install Dependencies
-        run: python3.7 -m pip install docker pytest
+        run: python -m pip install docker pytest
       - name: Test Image
         run: bash scripts/test.sh
         env:
@@ -55,7 +68,7 @@ jobs:
   check:
     if: always()
     needs:
-    - build
+    - test
     runs-on: ubuntu-latest
     steps:
     - name: Decide whether the needed jobs succeeded or failed
