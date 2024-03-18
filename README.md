@@ -678,6 +678,7 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+### 0.8.0
 
 #### Features
 
