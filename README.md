@@ -678,12 +678,27 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
-* 📝 Update test badge in `README.md`. PR [#197](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/197) by [@alejsdev](https://github.com/alejsdev).
+
+#### Features
+
 * ✨ Add support for multi-arch builds, including support for `arm64` (e.g. Mac M1). PR [#195](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/195) by [@tiangolo](https://github.com/tiangolo).
-* ⬆️ Bump gunicorn from 20.1.0 to 21.2.0. PR [#185](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/185) by [@dependabot[bot]](https://github.com/apps/dependabot).
-* ⬆️ Bump actions/checkout from 3.3.0 to 4.1.0. PR [#189](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/189) by [@dependabot[bot]](https://github.com/apps/dependabot).
+
+#### Docs
+
+* 📝 Update test badge in `README.md`. PR [#197](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/197) by [@alejsdev](https://github.com/alejsdev).
+
+#### Refactors
+
 * 🔥 Remove Alpine support. PR [#193](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/193) by [@tiangolo](https://github.com/tiangolo).
+
+#### Upgrades
+
+* ⬆️ Bump gunicorn from 20.1.0 to 21.2.0. PR [#185](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/185) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump uvicorn[standard] from 0.20.0 to 0.21.0. PR [#174](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/174) by [@dependabot[bot]](https://github.com/apps/dependabot).
+
+#### Internal
+
+* ⬆️ Bump actions/checkout from 3.3.0 to 4.1.0. PR [#189](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/189) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update mypy requirement from ^0.991 to ^1.1. PR [#173](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/173) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update black requirement from ^22.10 to ^23.1. PR [#171](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/171) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump actions/checkout from 3.1.0 to 3.3.0. PR [#170](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/170) by [@dependabot[bot]](https://github.com/apps/dependabot).
