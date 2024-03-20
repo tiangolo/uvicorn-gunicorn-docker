@@ -1,4 +1,4 @@
-[![Test](https://github.com/tiangolo/uvicorn-gunicorn-docker/workflows/Test/badge.svg)](https://github.com/tiangolo/uvicorn-gunicorn-docker/actions?query=workflow%3ATest) [![Deploy](https://github.com/tiangolo/uvicorn-gunicorn-docker/workflows/Deploy/badge.svg)](https://github.com/tiangolo/uvicorn-gunicorn-docker/actions?query=workflow%3ADeploy)
+[![Test](https://github.com/tiangolo/uvicorn-gunicorn-docker/actions/workflows/test.yml/badge.svg)](https://github.com/tiangolo/uvicorn-gunicorn-docker/actions/workflows/test.yml) [![Deploy](https://github.com/tiangolo/uvicorn-gunicorn-docker/workflows/Deploy/badge.svg)](https://github.com/tiangolo/uvicorn-gunicorn-docker/actions?query=workflow%3ADeploy)
 
 ## Supported tags and respective `Dockerfile` links
 
@@ -12,23 +12,21 @@
 * [`python3.9-slim` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.9-slim.dockerfile)
 * [`python3.8-slim` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.8-slim.dockerfile)
 
-## Discouraged tags
-
-* [`python3.9-alpine3.14` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.9-alpine3.14.dockerfile)
-* [`python3.8-alpine3.10` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.8-alpine3.10.dockerfile)
-* [`python3.7-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.7-alpine3.8.dockerfile)
-
-To learn more about why Alpine images are discouraged for Python read the note at the end: [🚨 Alpine Python Warning](#-alpine-python-warning).
-
 ## Deprecated tags
 
-🚨 These tags are no longer supported or maintained, they are removed from the GitHub repository, but the last version pushed is still available in Docker Hub.
+🚨 These tags are no longer supported or maintained, they are removed from the GitHub repository, but the last versions pushed might still be available in Docker Hub if anyone has been pulling them:
 
+* `python3.9-alpine3.14`
+* `python3.8-alpine3.10`
+* `python3.7-alpine3.8`
 * `python3.6`
 * `python3.6-alpine3.8`
 
-The last versions with date tags for Python 3.6 are:
+The last date tags for these versions are:
 
+* `python3.9-alpine3.14-2024-03-11`
+* `python3.8-alpine3.10-2024-03-11`
+* `python3.7-alpine3.8-2024-03-11`
 * `python3.6-2022-11-25`
 * `python3.6-alpine3.8-2022-11-25`
 
@@ -38,7 +36,7 @@ The last versions with date tags for Python 3.6 are:
 
 # uvicorn-gunicorn
 
-[**Docker**](https://www.docker.com/) image with [**Uvicorn**](https://www.uvicorn.org/) managed by [**Gunicorn**](https://gunicorn.org/) for high-performance web applications in **[Python](https://www.python.org/)** with performance auto-tuning. Optionally in a slim version or based on Alpine Linux.
+[**Docker**](https://www.docker.com/) image with [**Uvicorn**](https://www.uvicorn.org/) managed by [**Gunicorn**](https://gunicorn.org/) for high-performance web applications in **[Python](https://www.python.org/)** with performance auto-tuning.
 
 **GitHub repo**: [https://github.com/tiangolo/uvicorn-gunicorn-docker](https://github.com/tiangolo/uvicorn-gunicorn-docker)
 
@@ -126,7 +124,7 @@ This image will set a sensible configuration based on the server it is running o
 
 It has sensible defaults, but you can configure it with environment variables or override the configuration files.
 
-There is also a slim version and another one based on Alpine Linux. If you want one of those, use one of the tags from above.
+There is also a slim version. If you want one of those, use one of the tags from above.
 
 ### Frameworks
 
@@ -680,7 +678,33 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+#### Internal
+
+* 🔧 Add GitHub templates for discussions and issues, and security policy. PR [#205](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/205) by [@alejsdev](https://github.com/alejsdev).
+* 🔧 Update `latest-changes.yml`. PR [#198](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/198) by [@alejsdev](https://github.com/alejsdev).
+
+### 0.8.0
+
+#### Features
+
+* ✨ Add support for multi-arch builds, including support for `arm64` (e.g. Mac M1). PR [#195](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/195) by [@tiangolo](https://github.com/tiangolo).
+
+#### Docs
+
+* 📝 Update test badge in `README.md`. PR [#197](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/197) by [@alejsdev](https://github.com/alejsdev).
+
+#### Refactors
+
+* 🔥 Remove Alpine support. PR [#193](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/193) by [@tiangolo](https://github.com/tiangolo).
+
+#### Upgrades
+
+* ⬆️ Bump gunicorn from 20.1.0 to 21.2.0. PR [#185](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/185) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump uvicorn[standard] from 0.20.0 to 0.21.0. PR [#174](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/174) by [@dependabot[bot]](https://github.com/apps/dependabot).
+
+#### Internal
+
+* ⬆️ Bump actions/checkout from 3.3.0 to 4.1.0. PR [#189](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/189) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update mypy requirement from ^0.991 to ^1.1. PR [#173](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/173) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update black requirement from ^22.10 to ^23.1. PR [#171](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/171) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump actions/checkout from 3.1.0 to 3.3.0. PR [#170](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/170) by [@dependabot[bot]](https://github.com/apps/dependabot).

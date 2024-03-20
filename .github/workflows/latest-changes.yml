@@ -16,10 +16,10 @@ jobs:
   latest-changes:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.3.0
+      - uses: actions/checkout@v4.1.0
         with:
           # To allow latest-changes to commit to master
           token: ${{ secrets.UVICORN_GUNICORN_DOCKER_LATEST_CHANGES }}
-      - uses: docker://tiangolo/latest-changes:0.0.3
+      - uses: docker://tiangolo/latest-changes:0.3.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
