@@ -678,6 +678,10 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+#### Features
+
+* 👷 Avoid creating unnecessary `*.pyc` files with `PYTHONDONTWRITEBYTECODE=1` and ensure logs are printed immediately with `PYTHONUNBUFFERED=1`. PR [#192](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/192) by [@estebanx64](https://github.com/estebanx64).
+
 #### Internal
 
 * 🔧 Add GitHub templates for discussions and issues, and security policy. PR [#205](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/205) by [@alejsdev](https://github.com/alejsdev).
