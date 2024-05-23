@@ -684,6 +684,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Internal
 
+* ⬆️ Bump docker/build-push-action from 2 to 5. PR [#202](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/202) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump tiangolo/issue-manager from 0.4.0 to 0.5.0. PR [#201](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/201) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump docker/setup-buildx-action from 1 to 3. PR [#200](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/200) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump actions/setup-python from 4 to 5. PR [#199](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/199) by [@dependabot[bot]](https://github.com/apps/dependabot).
