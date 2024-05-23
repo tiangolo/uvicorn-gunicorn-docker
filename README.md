@@ -682,6 +682,10 @@ All the image tags, configurations, environment variables and application option
 
 * 👷 Avoid creating unnecessary `*.pyc` files with `PYTHONDONTWRITEBYTECODE=1` and ensure logs are printed immediately with `PYTHONUNBUFFERED=1`. PR [#192](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/192) by [@estebanx64](https://github.com/estebanx64).
 
+#### Upgrades
+
+* ⬆️ Bump gunicorn from 21.2.0 to 22.0.0 in /docker-images. PR [#209](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/209) by [@dependabot[bot]](https://github.com/apps/dependabot).
+
 #### Internal
 
 * ⬆️ Bump peter-evans/dockerhub-description from 3 to 4. PR [#203](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/203) by [@dependabot[bot]](https://github.com/apps/dependabot).
