@@ -13,6 +13,13 @@ export APP_MODULE=${APP_MODULE:-"$MODULE_NAME:$VARIABLE_NAME"}
 HOST=${HOST:-0.0.0.0}
 PORT=${PORT:-80}
 LOG_LEVEL=${LOG_LEVEL:-info}
+ACCESS_LOG=${ACCESS_LOG-"-"}   # Set ACCESS_LOG="-" only if unset
+
+# If ACCESS_LOG was set and is null, disable access log
+ACCESS_LOG_OPTION=""
+if [ -z "$ACCESS_LOG" ] ; then
+    ACCESS_LOG_OPTION="--no-access-log"
+fi
 
 # If there's a prestart.sh script in the /app directory or other path specified, run it before starting
 PRE_START_PATH=${PRE_START_PATH:-/app/prestart.sh}
@@ -25,4 +32,4 @@ else
 fi
 
 # Start Uvicorn with live reload
-exec uvicorn --reload --host $HOST --port $PORT --log-level $LOG_LEVEL "$APP_MODULE"
+exec uvicorn --reload --host $HOST --port $PORT --log-level $LOG_LEVEL $ACCESS_LOG_OPTION "$APP_MODULE"
