@@ -14,7 +14,7 @@ class App:
                 "headers": [[b"content-type", b"text/plain"]],
             }
         )
-        version = f"{sys.version_info.major}.{sys.version_info.minor}"
+        version = f"{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}"
         message = f"Hello world! From Uvicorn with Gunicorn. Using Python {version}".encode(
             "utf-8"
         )
