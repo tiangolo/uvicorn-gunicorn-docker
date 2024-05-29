@@ -33,6 +33,8 @@ jobs:
             python_version: "3.9"
           - name: python3.8-slim
             python_version: "3.8"
+          - name: python3.8.16-slim
+            python_version: "3.8.16"
       fail-fast: true
     runs-on: ubuntu-latest
     steps:
@@ -58,8 +60,8 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: |
-            tiangolo/uvicorn-gunicorn:${{ matrix.image.name }}
-            tiangolo/uvicorn-gunicorn:${{ matrix.image.name }}-${{ env.DATE_TAG }} 
+            shiphero/uvicorn-gunicorn:${{ matrix.image.name }}
+            shiphero/uvicorn-gunicorn:${{ matrix.image.name }}-${{ env.DATE_TAG }} 
           context: ./docker-images/
           file: ./docker-images/${{ env.DOCKERFILE_NAME }}.dockerfile
       - name: Docker Hub Description
@@ -67,4 +69,4 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: tiangolo/uvicorn-gunicorn
+          repository: shiphero/uvicorn-gunicorn

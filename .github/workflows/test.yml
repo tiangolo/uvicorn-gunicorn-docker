@@ -37,6 +37,8 @@ jobs:
             python_version: "3.9"
           - name: python3.8-slim
             python_version: "3.8"
+          - name: python3.8.16-slim
+            python_version: "3.8.16"
       fail-fast: true
     runs-on: ubuntu-latest
     steps:
@@ -51,7 +53,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: false
-          tags: tiangolo/uvicorn-gunicorn:${{ matrix.image.name }}
+          tags: shiphero/uvicorn-gunicorn:${{ matrix.image.name }}
           context: ./docker-images/
           file: ./docker-images/${{ env.DOCKERFILE_NAME }}.dockerfile
       - name: Set up Python

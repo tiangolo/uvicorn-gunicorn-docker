@@ -13,6 +13,7 @@ environments = [
     {"NAME": "python3.10-slim", "PYTHON_VERSION": "3.10"},
     {"NAME": "python3.9-slim", "PYTHON_VERSION": "3.9"},
     {"NAME": "python3.8-slim", "PYTHON_VERSION": "3.8"},
+    {"NAME": "python3.8.16-slim", "PYTHON_VERSION": "3.8.16"},
 ]
 
 start_with = os.environ.get("START_WITH")
