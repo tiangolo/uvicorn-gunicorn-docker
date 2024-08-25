@@ -689,6 +689,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Internal
 
+* ⬆️ Bump actions/checkout from 4.1.0 to 4.1.7. PR [#216](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/216) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump docker/login-action from 1 to 3. PR [#211](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/211) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Update issue-manager.yml GitHub Action permissions. PR [#219](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/219) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Bump peter-evans/dockerhub-description from 3 to 4. PR [#203](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/203) by [@dependabot[bot]](https://github.com/apps/dependabot).
