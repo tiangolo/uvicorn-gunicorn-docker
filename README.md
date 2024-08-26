@@ -695,6 +695,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Internal
 
+* 👷 Update `latest-changes` GitHub Action. PR [#236](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/236) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Bump docker/build-push-action from 5 to 6. PR [#217](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/217) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump gunicorn from 22.0.0 to 23.0.0. PR [#222](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/222) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump actions/checkout from 4.1.0 to 4.1.7. PR [#216](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/216) by [@dependabot[bot]](https://github.com/apps/dependabot).
