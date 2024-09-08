@@ -684,6 +684,10 @@ All the image tags, configurations, environment variables and application option
 
 * 👷 Avoid creating unnecessary `*.pyc` files with `PYTHONDONTWRITEBYTECODE=1` and ensure logs are printed immediately with `PYTHONUNBUFFERED=1`. PR [#192](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/192) by [@estebanx64](https://github.com/estebanx64).
 
+#### Refactors
+
+* ♻️ Do not `EXPOSE` ports `80` and `443` by default as they can be customized. PR [#238](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/238) by [@tiangolo](https://github.com/tiangolo).
+
 #### Upgrades
 
 * ⬆️ Bump gunicorn from 21.2.0 to 22.0.0. PR [#210](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/210) by [@dependabot[bot]](https://github.com/apps/dependabot).
