@@ -693,6 +693,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Upgrades
 
+* 🔥 Drop support for Python 3.7 and 3.8. PR [#246](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/246) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Bump gunicorn from 21.2.0 to 22.0.0. PR [#210](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/210) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump gunicorn from 21.2.0 to 22.0.0 in /docker-images. PR [#209](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/209) by [@dependabot[bot]](https://github.com/apps/dependabot).
 
