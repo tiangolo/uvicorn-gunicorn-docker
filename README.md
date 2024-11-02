@@ -704,6 +704,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Internal
 
+* 🔥 Remove old unused files. PR [#247](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/247) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Bump actions/checkout from 4.1.7 to 4.2.2. PR [#245](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/245) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump tiangolo/issue-manager from 0.5.0 to 0.5.1. PR [#239](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/239) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Update `issue-manager.yml`. PR [#237](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/237) by [@tiangolo](https://github.com/tiangolo).
