@@ -693,6 +693,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Upgrades
 
+* Bump uvicorn[standard] from 0.32.1 to 0.34.0. PR [#250](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/250) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump uvicorn[standard] from 0.32.0 to 0.32.1. PR [#249](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/249) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump uvicorn[standard] from 0.21.0 to 0.32.0. PR [#244](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/244) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 🔥 Drop support for Python 3.7 and 3.8. PR [#246](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/246) by [@tiangolo](https://github.com/tiangolo).
