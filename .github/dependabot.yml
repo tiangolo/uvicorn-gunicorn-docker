@@ -5,8 +5,12 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    commit-message:
+      prefix: ⬆
   # Python dependencies, covers root dependencies for development and also ./docker-images
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
       interval: "daily"
+    commit-message:
+      prefix: ⬆
