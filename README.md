@@ -709,6 +709,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Internal
 
+* ⬆ Bump actions/labeler from 5 to 6. PR [#261](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/261) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump actions/setup-python from 5 to 6. PR [#260](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/260) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Update Dependabot config prefix. PR [#257](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/257) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Update CI config for labeler. PR [#252](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/252) by [@tiangolo](https://github.com/tiangolo).
