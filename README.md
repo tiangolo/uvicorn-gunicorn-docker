@@ -709,6 +709,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Internal
 
+* ⬆ Bump tiangolo/issue-manager from 0.5.1 to 0.6.0. PR [#264](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/264) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump actions/labeler from 5 to 6. PR [#261](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/261) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump actions/setup-python from 5 to 6. PR [#260](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/260) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Update Dependabot config prefix. PR [#257](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/257) by [@tiangolo](https://github.com/tiangolo).
