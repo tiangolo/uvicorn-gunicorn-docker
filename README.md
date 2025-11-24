@@ -711,6 +711,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Internal
 
+* 👷 Upgrade `latest-changes` GitHub Action and pin `actions/checkout@v5`. PR [#270](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/270) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump actions/checkout from 4.2.2 to 5.0.0. PR [#259](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/259) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 🔥 Drop support for Python 3.9. PR [#266](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/266) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump tiangolo/issue-manager from 0.5.1 to 0.6.0. PR [#264](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/264) by [@dependabot[bot]](https://github.com/apps/dependabot).
