@@ -695,6 +695,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Upgrades
 
+* ⬆ Bump gunicorn from 23.0.0 to 25.1.0. PR [#280](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/280) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump uvicorn[standard] from 0.35.0 to 0.38.0. PR [#265](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/265) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump uvicorn[standard] from 0.34.3 to 0.35.0. PR [#256](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/256) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * Bump uvicorn[standard] from 0.34.0 to 0.34.3. PR [#255](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/255) by [@dependabot[bot]](https://github.com/apps/dependabot).
