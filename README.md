@@ -711,6 +711,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Internal
 
+* ⬆ Bump actions/checkout from 5.0.0 to 6.0.2. PR [#274](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/274) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump peter-evans/dockerhub-description from 4 to 5. PR [#267](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/267) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Upgrade actions/checkout from v5 to v6. PR [#271](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/271) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Upgrade `latest-changes` GitHub Action and pin `actions/checkout@v5`. PR [#270](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/270) by [@tiangolo](https://github.com/tiangolo).
