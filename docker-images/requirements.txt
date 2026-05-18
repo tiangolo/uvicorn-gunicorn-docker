@@ -1,2 +1,2 @@
 uvicorn[standard]==0.47.0
-gunicorn==25.1.0
+gunicorn==26.0.0
