@@ -715,6 +715,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Internal
 
+* 👷 Update Dependabot. PR [#295](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/295) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump docker/build-push-action from 6 to 7. PR [#283](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/283) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump docker/setup-buildx-action from 3 to 4. PR [#284](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/284) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump actions/checkout from 5.0.0 to 6.0.2. PR [#274](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/274) by [@dependabot[bot]](https://github.com/apps/dependabot).
