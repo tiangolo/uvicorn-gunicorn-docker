@@ -715,6 +715,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Internal
 
+* ⬆ Bump the github-actions group across 1 directory with 3 updates. PR [#302](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/302) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 🔥 Remove config files now in central GitHub repo. PR [#297](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/297) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Update Dependabot. PR [#295](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/295) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump docker/build-push-action from 6 to 7. PR [#283](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/283) by [@dependabot[bot]](https://github.com/apps/dependabot).
