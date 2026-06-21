@@ -716,6 +716,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Internal
 
+* 🔒️ Add zizmor workflow security checks. PR [#303](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/303) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump the github-actions group across 1 directory with 3 updates. PR [#302](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/302) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 🔥 Remove config files now in central GitHub repo. PR [#297](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/297) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Update Dependabot. PR [#295](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/295) by [@tiangolo](https://github.com/tiangolo).
