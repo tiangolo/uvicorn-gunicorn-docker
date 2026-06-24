@@ -33,6 +33,7 @@
 
 ### Internal
 
+* 📝 Refactor release notes, move to its own file. PR [#306](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/306) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Update issue-manager to 0.7.1. PR [#305](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/305) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Update issue-manager to 0.7.0. PR [#304](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/304) by [@tiangolo](https://github.com/tiangolo).
 * 🔒️ Add zizmor workflow security checks. PR [#303](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/303) by [@tiangolo](https://github.com/tiangolo).
@@ -205,4 +206,3 @@ The highlights of this release are:
 ## 0.1.0
 
 * Add support for `/app/prestart.sh`.
-
