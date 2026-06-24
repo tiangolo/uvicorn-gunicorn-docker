@@ -716,6 +716,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Internal
 
+* 👷 Update issue-manager to 0.7.1. PR [#305](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/305) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Update issue-manager to 0.7.0. PR [#304](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/304) by [@tiangolo](https://github.com/tiangolo).
 * 🔒️ Add zizmor workflow security checks. PR [#303](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/303) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump the github-actions group across 1 directory with 3 updates. PR [#302](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/302) by [@dependabot[bot]](https://github.com/apps/dependabot).
