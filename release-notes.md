@@ -34,6 +34,7 @@
 
 ### Internal
 
+* 👷 Migrate automatic labels to Latest Changes. PR [#325](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/325) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Remove legacy label check. PR [#324](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/324) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump the github-actions group across 1 directory with 7 updates. PR [#319](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/319) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 🔧 Fix Zizmor version comments. PR [#322](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/322) by [@tiangolo](https://github.com/tiangolo).
