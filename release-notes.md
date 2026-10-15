@@ -32,6 +32,7 @@
 
 ### Docs
 
+* 🎨 Format Python in Markdown with Ruff. PR [#338](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/338) by [@tiangolo](https://github.com/tiangolo).
 * 📝 Deprecate this Docker image, use Uvicorn with `--workers` ✨. PR [#225](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/225) by [@tiangolo](https://github.com/tiangolo).
 
 ### Internal
